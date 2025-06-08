@@ -115,7 +115,7 @@ h1{
 .text{
     position: absolute;
     top: 50%;
-    left: 0%;
+    left: 20%;
     transform: translate(10%,-50%);
     text-transform: uppercase;
     font-family: verdana;
