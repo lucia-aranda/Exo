@@ -113,9 +113,9 @@ h1{
     text-shadow: 1px 1px 1px #919191;
 }
 .text{
-    position: absolute;
+    position: center;
     top: 50%;
-    left: 20%;
+    left: 50%;
     transform: translate(10%,-50%);
     text-transform: uppercase;
     font-family: verdana;
