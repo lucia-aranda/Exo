@@ -7,78 +7,200 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exo</title>
   </head>
-  <body onload="move('div')">
+  <body class="background-container bg-default" onload="move('div')">
     
+    <!-- ? MENU -->
     <div class="menu" id="div">
       
-      <div class="toggle" title="More"><ion-icon name="add-outline"></ion-icon></div>
+      <div class="toggle round-button green" title="More"><ion-icon name="add-outline" class="rotate"></ion-icon></div>
         
-        <!-- about -->
-        <a href="index.html">
-        <li style="--i:0;" title="About"><ion-icon name="information-outline"></ion-icon></li>
+        <!-- web stamps -->
+        <a href="web_stamps.html">
+        <li style="--i:0;" title="stamps" class="round-button purple"><ion-icon name="sparkles-outline"></ion-icon></li>
         </a>
-        <!-- skills -->
-        <a href="index.html">
-        <li style="--i:1;" title="Skills"><ion-icon name="game-controller-outline"></ion-icon></li>
+        <!-- pairs game -->
+        <a href="pairs_game.html">
+        <li style="--i:1;" title="pairs"  class="round-button blue"><ion-icon name="game-controller-outline"></ion-icon></li>
         </a>
-        <!-- experience -->
-        <a href="index.html">
-        <li style="--i:2;" title="Experience"><ion-icon name="ribbon-outline"></ion-icon></li>
+        <!-- eco blog -->
+        <a href="eco_blog.html">
+        <li style="--i:2;" title="blog"  class="round-button red"><ion-icon name="flask-outline"></ion-icon></li>
         </a>
-        <!-- projects -->
-        <a href="index.html">
-        <li style="--i:3;" title="Projects"><ion-icon name="color-wand-outline"></ion-icon></li>
+        <!-- music player -->
+        <a href="music_player.html">
+        <li style="--i:3;" title="music" class="round-button orange"><ion-icon name="musical-notes-outline"></ion-icon></li>
         </a>
-        <!-- contact -->
-        <a href="index.html">
-        <li style="--i:4;" title="Contact"><ion-icon name="chatbubbles-outline"></ion-icon></li>
+        <!-- themed calendar -->
+        <a href="themed_calendar.html">
+        <li style="--i:4;" title="calendar" class="round-button yellow"><ion-icon name="calendar-outline"></ion-icon></li>
         </a>
 
     </div>
 
-    <div class="description">
-      <span class="text">Exo</span>
-      <span class="txt">Click the "plus" button to discover.</span>
-      <div class="box">
-        <div class="content">
-          <img src="img/e.png">
-          <h2>Made<br><span>By Lucy</span></h2>
-          <!-- <a href="#">Lol</a> -->
+    <!-- ?? /MENU -->
+
+      <!-- !! RIGHT ELEMENTS -->
+
+    <div>
+      <div class="container-bg-btn">
+        <div class="btn" onclick="changeToImage1()"><a href="#">Cyber Glacier</a></div>
+        <div class="btn" onclick="changeToImage2()"><a href="#" >DORFic</a></div>
+        <div class="btn" onclick="changeToImage0()"><a href="#" >Frutiger Aero</a></div>
+      </div>
+    </div>		
+
+    <div class="box">
+      <div class="content">
+        <img src="img/exo.png">
+        <h2>Created by:<br><span>L.C.A.G.</span></h2>
+      </div>
+    </div>
+
+    <div class="terminal-loader">
+      <div class="terminal-header">
+        <div class="terminal-title">Welcome</div>
+        <div class="terminal-controls">
+          <div class="control close"></div>
+          <div class="control minimize"></div>
+          <div class="control maximize"></div>
         </div>
       </div>
+      <div class="text">Read me!..</div>
       <br>
+      <div class="texet">• You can drag the</div>
+      <div class="texet">  menu (+)</div>
+      <br>
+      <div class="texet">• One click on '+'</div>
+      <div class="texet">  to discover</div>
     </div>
-    
 
+
+    <!-- !! /RIGHT ELEMENTS -->
+
+    <!-- ** LEFT ELEMENTS -->
+
+    <div class="container glass">
+      <div class="log-title">
+        <h1>Website's Log</h1>
+      </div>
+      <p>Stamps module creation . . . . . . . . . Sep 25</p>
+      <p>Blog module creation . . . . . . . . . . Sep 25</p>
+      <p>Player module creation . . . . . . . . . Sep 25</p>
+      <p>Calendar module creation . . . . . . . . Sep 25</p>
+      <p>Game module creation . . . . . . . . . . Sep 25</p>
+      <p>Home screen update . . . . . . . . . . . Sep 25</p>
+      <p>Year creation . . . . . . . . . . . . . . 2022</p>
+    </div>
+
+    <!-- ** /LEFT ELEMENTS -->
+
+    <!-- ?? MENU-SCRIPT -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     <script>
-      let toggle = document.querySelector('.toggle');
-      let menu = document.querySelector('.menu');
-      toggle.onclick=function(){
-        menu.classList.toggle('active')
-      }
-      var drag;
-      function move(id){
-        var element = document.getElementById("div");
-        element.style.position = "absolute";
-        element.onmousedown = function(){
-          drag = element;
+    let isDragging = false;
+    let dragStartPos = { x: 0, y: 0 };
+    let dragStartTime = 0;
+    let dragThreshold = 8; // pixels to considerate drag
+    let clickTimeThreshold = 300; // ms max to click
+    let initialElementPos = { x: 0, y: 0 };
+
+    let toggle = document.querySelector('.toggle');
+    let menu = document.querySelector('.menu');
+
+    toggle.onmousedown = function(e) {
+      e.preventDefault();
+      e.stopPropagation(); // Important: avoid propagation
+  
+    // Save initial data
+    dragStartPos.x = e.pageX;
+    dragStartPos.y = e.pageY;
+    dragStartTime = Date.now();
+    isDragging = false;
+  
+    // Prepare to possible entire menu's drag
+    menu.style.position = "absolute";
+    initialElementPos.x = parseInt(menu.style.left) || 0;
+    initialElementPos.y = parseInt(menu.style.top) || 0;
+    };
+
+    document.onmouseup = function(e) {
+      if (dragStartTime > 0) {
+        const clickDuration = Date.now() - dragStartTime;
+        
+        if (isDragging) {
+          // DRAG = active - no toggle
+          console.log("Menu arrastrado");
+        } else if (clickDuration < clickTimeThreshold) {
+          // CLICK = active - do toggle
+          menu.classList.toggle('active');
         }
+        
+        // Reset variables
+        isDragging = false;
+        dragStartTime = 0;
       }
-      document.onmouseup = function(e){
-        drag = null;
-      }
-      document.onmousemove = function(e){
+      
+      drag = null;
+    }
+
+      document.onmousemove = function(e) {
+        // Detect drag from toggle
+        if (dragStartTime > 0) {
+          const deltaX = e.pageX - dragStartPos.x;
+          const deltaY = e.pageY - dragStartPos.y;
+          const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+          
+          // Detect if is drag
+          if (distance > dragThreshold && !isDragging) {
+            isDragging = true;
+            drag = menu; // Asign entire menu to drag
+          }
+        }
+          
+      if (drag) {
         var x = e.pageX;
         var y = e.pageY;
-
-        drag.style.left = x -100 + "px";
-        drag.style.top = y -100 + "px";
+        
+        drag.style.left = x - 100 + "px";
+        drag.style.top = y - 100 + "px";
       }
-     
+    }
     </script>
+    <!-- ?? /MENU-SCRIPT -->
+
+    <!-- ?? BACKGROUND-CHANGE -->
+    <script>
+      function changeToImage0() {
+          const bgElement = document.querySelector('.background-container');
+          bgElement.classList.remove('bg-image1', 'bg-image2');
+          bgElement.classList.add('bg-default');
+
+          const divElement = document.querySelector('.container');
+          divElement.classList.remove('dark-glass');
+          divElement.classList.add('glass');
+      }
+      function changeToImage1() {
+          const bgElement = document.querySelector('.background-container');
+          bgElement.classList.remove('bg-default', 'bg-image2');
+          bgElement.classList.add('bg-image1');
+
+          const divElement = document.querySelector('.container');
+          divElement.classList.remove('glass');
+          divElement.classList.add('dark-glass');
+      }
+      function changeToImage2() {
+          const bgElement = document.querySelector('.background-container');
+          bgElement.classList.remove('bg-default', 'bg-image1');
+          bgElement.classList.add('bg-image2');
+
+          const divElement = document.querySelector('.container');
+          divElement.classList.remove('dark-glass');
+          divElement.classList.add('glass');
+      }
+    </script>
+    <!-- ?? /BACKGROUND-CHANGE -->
 
   </body>
 </html>
