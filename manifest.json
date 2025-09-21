@@ -1,0 +1,27 @@
+{ 
+    "start_url": "/",
+    "short_name": "ΞΧΩ",  
+    "name": "ΞΧΩ",  
+    "description": "Pet project website, consisting of some stuff from 2000s aesthetic, Frutiger Aero. Built with JS, HTML and CSS.",  
+    "background_color": "#000000",  
+    "theme_color": "#000000",  
+    "orientation": "portrait",  
+    "display": "standalone",  
+    "icons":[
+      {  
+        "src": "img/exo_xxxhdpi.png",  
+        "type": "image/png",  
+        "sizes": "192x192"
+      },
+      {
+        "src": "img/exo_xxhdpi.png",  
+        "type": "image/png",  
+        "sizes": "144x144"
+      },
+      {
+        "src": "img/exo_mdpi.png",  
+        "type": "image/png",  
+        "sizes": "48x48"
+      }
+    ] 
+  }

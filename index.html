@@ -3,9 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <link rel="icon" href="img/exo.png">
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exo</title>
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+              .then(registration => {
+                console.log('Service Worker registrado con éxito:', registration);
+              })
+              .catch(error => {
+                console.error('Error al registrar el Service Worker:', error);
+              });
+          });
+        }
+    </script>
   </head>
   <body class="background-container bg-default" onload="move('div')">
     
@@ -83,6 +100,7 @@
       <div class="log-title">
         <h1>Website's Log</h1>
       </div>
+      <p>P.W.A. enabled . . . . . . . . . . . . . Sep 25</p>
       <p>Stamps module creation . . . . . . . . . Sep 25</p>
       <p>Blog module creation . . . . . . . . . . Sep 25</p>
       <p>Player module creation . . . . . . . . . Sep 25</p>
