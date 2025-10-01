@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Audiowide", sans-serif;
+    background-image: url('../img/frutiger-world.webp');
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.400);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #74a727 0%, #2587f8 100%);
+    border-radius: 10px;
+    color: white;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.stat-value {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.card {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, #74a727 0%, #2587f8 100%);
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card.matched {
+    opacity: 0.6;
+    cursor: default;
+    animation: matched 0.6s ease;
+}
+
+@keyframes matched {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    font-size: 3em;
+}
+
+.card-back img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.card-front {
+    background: linear-gradient(135deg, #74a727 100%);
+    color: white;
+}
+
+.card-back {
+    background: white;
+    transform: rotateY(180deg);
+}
+
+.controls {
+    text-align: center;
+}
+
+button {
+    background: linear-gradient(360deg, #74a727 0%, #2587f8 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 20px;
+    transition: all 0.3s ease;
+    font-family: "Audiowide", sans-serif;
+    position: relative;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 4%;
+    right: 4%;
+    height: 40%;
+    background: linear-gradient(135deg, 
+        rgba(255,255,255,0.4) 5%, 
+        rgba(255,255,255,0.2) 50%, 
+        rgba(255,255,255,0.05) 100%);
+    border-radius: 5px;
+    pointer-events: none;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.win-message {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 1.3em;
+    font-weight: bold;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.win-message.show {
+    display: block;
+}

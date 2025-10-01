@@ -2,11 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="img/exo.png">
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exo</title>
+    <!-- Page's icon -->
+    <link rel="icon" href="img/exo.png">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
     <!-- Manifest -->
     <link rel="manifest" href="manifest.json">
     <!-- Service Worker -->
@@ -23,10 +24,15 @@
           });
         }
     </script>
+    <!-- Font Source -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+    </style>
   </head>
   <body class="background-container bg-default" onload="move('div')">
     
-    <!-- ? MENU -->
+    <!-- ?? MENU -->
+
     <div class="menu" id="div">
       
       <div class="toggle round-button green" title="More"><ion-icon name="add-outline" class="rotate"></ion-icon></div>
@@ -56,7 +62,7 @@
 
     <!-- ?? /MENU -->
 
-      <!-- !! RIGHT ELEMENTS -->
+    <!-- ** BACKGROUND BUTTONS -->
 
     <div>
       <div class="container-bg-btn">
@@ -64,7 +70,11 @@
         <div class="btn" onclick="changeToImage2()"><a href="#" >DORFic</a></div>
         <div class="btn" onclick="changeToImage0()"><a href="#" >Frutiger Aero</a></div>
       </div>
-    </div>		
+    </div>	
+    
+    <!-- ** /BACKGROUND BUTTONS -->
+
+    <!-- ?? EXO CIRCLE -->
 
     <div class="box">
       <div class="content">
@@ -72,6 +82,10 @@
         <h2>Created by:<br><span>L.C.A.G.</span></h2>
       </div>
     </div>
+
+    <!-- ?? /EXO CIRCLE -->
+
+    <!-- ** TERMINAL -->
 
     <div class="terminal-loader">
       <div class="terminal-header">
@@ -91,28 +105,31 @@
       <div class="texet">  to discover</div>
     </div>
 
+    <!-- ** /TERMINAL -->
 
-    <!-- !! /RIGHT ELEMENTS -->
-
-    <!-- ** LEFT ELEMENTS -->
+    <!-- ?? LOG -->
 
     <div class="container glass">
       <div class="log-title">
-        <h1>Website's Log</h1>
+        <p class="ph">Website's Log</p>
       </div>
-      <p>P.W.A. enabled . . . . . . . . . . . . . Sep 25</p>
-      <p>Stamps module creation . . . . . . . . . Sep 25</p>
-      <p>Blog module creation . . . . . . . . . . Sep 25</p>
-      <p>Player module creation . . . . . . . . . Sep 25</p>
-      <p>Calendar module creation . . . . . . . . Sep 25</p>
-      <p>Game module creation . . . . . . . . . . Sep 25</p>
-      <p>Home screen update . . . . . . . . . . . Sep 25</p>
-      <p>Year creation . . . . . . . . . . . . . . 2022</p>
+      <p>Player module update [Sep 25]</p>
+      <p>Game module update [Sep 25]</p>
+      <p>Calendar module update [Sep 25]</p>
+      <p>P.W.A. enabled [Sep 25]</p>
+      <p>Stamps module creation [Sep 25]</p>
+      <p>Blog module creation [Sep 25]</p>
+      <p>Player module creation [Sep 25]</p>
+      <p>Calendar module creation [Sep 25]</p>
+      <p>Game module creation [Sep 25]</p>
+      <p>Home screen update [Sep 25]</p>
+      <p>Exo creation [2022]</p>
     </div>
 
-    <!-- ** /LEFT ELEMENTS -->
+    <!-- ?? /LOG -->
 
-    <!-- ?? MENU-SCRIPT -->
+    <!-- !! MENU-SCRIPT -->
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
@@ -186,9 +203,11 @@
       }
     }
     </script>
-    <!-- ?? /MENU-SCRIPT -->
 
-    <!-- ?? BACKGROUND-CHANGE -->
+    <!-- !! /MENU-SCRIPT -->
+
+    <!-- !! BACKGROUND-CHANGE -->
+
     <script>
       function changeToImage0() {
           const bgElement = document.querySelector('.background-container');
@@ -218,7 +237,8 @@
           divElement.classList.add('glass');
       }
     </script>
-    <!-- ?? /BACKGROUND-CHANGE -->
+
+    <!-- !! /BACKGROUND-CHANGE -->
 
   </body>
 </html>

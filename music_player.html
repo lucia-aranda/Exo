@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exo - Music Player</title>
+    <!-- Page's icon -->
+    <link rel="icon" href="img/exo.png">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style_player.css">
      <!-- Manifest -->
     <link rel="manifest" href="manifest.json">
     <!-- Service Worker -->
@@ -22,8 +24,206 @@
           });
         }
     </script>
+    <!-- Font Source -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+    </style>
 </head>
 <body>
-    
+
+    <!-- ** PLAYER ▶▷ -->
+
+    <div class="container">
+        <p class="ph">Visualizer Music Player</p>
+        
+        <div class="audio-section">
+
+            <!-- ?? PAGE SECTION -->
+
+                <div class="page-section">
+                    
+                    <div class="page-buttons">
+                        <button class="page-btn active" onclick="changePage('animations/graphemescope.html', this)">
+                            graphemescope
+                        </button>
+                        <button class="page-btn" onclick="changePage('animations/crazy_4.html', this)">
+                            crazy_4
+                        </button>
+                        <button class="page-btn" onclick="changePage('animations/rain_thunder.html', this)">
+                            rain_thunder
+                        </button>
+                        <button class="page-btn" onclick="changePage('animations/relaxing_view.html', this)">
+                            relaxing_view
+                        </button>
+                    </div>
+                    
+                    <div class="iframe-container">
+                        <iframe id="embeddedPage" src="animations/graphemescope.html"></iframe>
+                    </div>
+                </div>
+
+            <!-- ?? /PAGE SECTION -->
+            
+            <!-- Upload Area -->
+            <div class="upload-area">
+                <input type="file" id="audioFile" accept="audio/mp3,audio/*" style="display: none;">
+                <button class="upload-btn" onclick="document.getElementById('audioFile').click()">
+                    Upload MP3 File ▷▶
+                </button>
+                <p>Or drag and drop an MP3 file here</p>
+            </div>
+            
+            <div id="fileInfo" class="file-info" style="display: none;"></div>
+            
+            <!-- Audio Element (hidden) -->
+            <audio id="audioPlayer" style="display: none;"></audio>
+            
+            <!-- Custom Controls -->
+            <div class="audio-controls">
+                <button id="playPauseBtn" class="control-btn" disabled>▶</button>
+                <button id="stopBtn" class="control-btn" disabled>⏹</button>
+                
+                <div class="timeline">
+                    <input type="range" id="timelineSlider" min="0" max="100" value="0" disabled>
+                </div>
+                
+                <div class="time-display">
+                    <span id="currentTime">00:00</span> / <span id="duration">00:00</span>
+                </div>
+                
+                <div class="volume-control">
+                    <span>🔈</span>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="50">
+                    <span id="volumeDisplay">50%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <!-- ** PLAYER ▶▷ -->
+
+    <script>
+        // Audio Player Variables
+        let audioPlayer = document.getElementById('audioPlayer');
+        let audioFile = document.getElementById('audioFile');
+        let playPauseBtn = document.getElementById('playPauseBtn');
+        let stopBtn = document.getElementById('stopBtn');
+        let timelineSlider = document.getElementById('timelineSlider');
+        let volumeSlider = document.getElementById('volumeSlider');
+        let currentTimeSpan = document.getElementById('currentTime');
+        let durationSpan = document.getElementById('duration');
+        let volumeDisplay = document.getElementById('volumeDisplay');
+        let fileInfo = document.getElementById('fileInfo');
+        let uploadArea = document.querySelector('.upload-area');
+
+        // File Upload Handler
+        audioFile.addEventListener('change', function(e) {
+            loadAudioFile(e.target.files[0]);
+        });
+
+        // Drag and Drop
+        uploadArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#1e263e';
+        });
+
+        uploadArea.addEventListener('dragleave', function(e) {
+            uploadArea.style.borderColor = '#262f4d';
+        });
+
+        uploadArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#262f4d';
+            if (e.dataTransfer.files.length > 0) {
+                loadAudioFile(e.dataTransfer.files[0]);
+            }
+        });
+
+        function loadAudioFile(file) {
+            if (file && file.type.startsWith('audio/')) {
+                const url = URL.createObjectURL(file);
+                audioPlayer.src = url;
+                
+                // Show file info
+                fileInfo.style.display = 'block';
+                fileInfo.innerHTML = `${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+                
+                // Enable controls
+                playPauseBtn.disabled = false;
+                stopBtn.disabled = false;
+                timelineSlider.disabled = false;
+            } else {
+                alert('Please select a valid audio file');
+            }
+        }
+
+        // Play/Pause Button
+        playPauseBtn.addEventListener('click', function() {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playPauseBtn.textContent = '⏸';
+            } else {
+                audioPlayer.pause();
+                playPauseBtn.textContent = '▷';
+            }
+        });
+
+        // Stop Button
+        stopBtn.addEventListener('click', function() {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+            playPauseBtn.textContent = '▶';
+        });
+
+        // Timeline Slider
+        audioPlayer.addEventListener('timeupdate', function() {
+            if (audioPlayer.duration) {
+                const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                timelineSlider.value = progress;
+                currentTimeSpan.textContent = formatTime(audioPlayer.currentTime);
+            }
+        });
+
+        audioPlayer.addEventListener('loadedmetadata', function() {
+            durationSpan.textContent = formatTime(audioPlayer.duration);
+        });
+
+        timelineSlider.addEventListener('input', function() {
+            if (audioPlayer.duration) {
+                audioPlayer.currentTime = (timelineSlider.value / 100) * audioPlayer.duration;
+            }
+        });
+
+        // Volume Control
+        volumeSlider.addEventListener('input', function() {
+            audioPlayer.volume = volumeSlider.value / 100;
+            volumeDisplay.textContent = volumeSlider.value + '%';
+        });
+
+        // Set initial volume
+        audioPlayer.volume = 0.5;
+
+        // Format time helper
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Page Navigation
+        function changePage(url, button) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.page-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            button.classList.add('active');
+            
+            // Change iframe source
+            document.getElementById('embeddedPage').src = url;
+        }
+    </script>
+
 </body>
 </html>
