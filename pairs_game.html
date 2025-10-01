@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exo - Pairs Game</title>
+    <!-- Page's icon -->
+    <link rel="icon" href="img/exo.png">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style_pairs.css">
      <!-- Manifest -->
     <link rel="manifest" href="manifest.json">
     <!-- Service Worker -->
@@ -22,8 +24,197 @@
           });
         }
     </script>
+    <!-- Font Source -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+    </style>
 </head>
 <body>
-    
+
+    <div class="container">
+        <h1>Frutiger Pairs</h1>
+        
+        <div class="win-message" id="winMessage">
+            ¡YOU WON!
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-label">Moves</div>
+                <div class="stat-value" id="moves">0</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Pairs</div>
+                <div class="stat-value" id="pairs">0/8</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Time</div>
+                <div class="stat-value" id="timer">0:00</div>
+            </div>
+        </div>
+
+        <div class="game-board" id="gameBoard"></div>
+
+        <div class="controls">
+            <button onclick="resetGame()">Reset Game</button>
+        </div>
+    </div>
+
+    <script>
+        // Images should ideally be square and around 200x200px for best results
+        const imageUrls = [
+            'img/apple.png', 
+            'img/blue-notebook.png', 
+            'img/colorful-locker.png', 
+            'img/dialog-balloons.png', 
+            'img/exo.png', 
+            'img/full-bin.png', 
+            'img/media-player.png', 
+            'img/movie-player.png', 
+            'img/blue-user.png', 
+            'img/orange.png', 
+            'img/world-headphones.png', 
+            'img/green-user.png', 
+            'img/blue-world.png', 
+            'img/clippy.png'
+        ];
+        
+        let cards = [];
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let moves = 0;
+        let gameStarted = false;
+        let timer = 0;
+        let timerInterval;
+
+        function initGame() {
+            const gameBoard = document.getElementById('gameBoard');
+            gameBoard.innerHTML = '';
+            
+            cards = [...imageUrls, ...imageUrls]
+                .sort(() => Math.random() - 0.5)
+                .map((imgUrl, index) => ({
+                    id: index,
+                    imageUrl: imgUrl,
+                    flipped: false,
+                    matched: false
+                }));
+
+            cards.forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'card';
+                cardElement.dataset.index = index;
+                cardElement.innerHTML = `
+                    <div class="card-front">?</div>
+                    <div class="card-back">
+                        <img src="${card.imageUrl}" alt="Card ${index}">
+                    </div>
+                `;
+                cardElement.addEventListener('click', () => flipCard(index));
+                gameBoard.appendChild(cardElement);
+            });
+
+            flippedCards = [];
+            matchedPairs = 0;
+            moves = 0;
+            gameStarted = false;
+            timer = 0;
+            
+            updateStats();
+            document.getElementById('winMessage').classList.remove('show');
+            
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+        }
+
+        function flipCard(index) {
+            if (!gameStarted) {
+                startTimer();
+                gameStarted = true;
+            }
+
+            const card = cards[index];
+            const cardElement = document.querySelector(`[data-index="${index}"]`);
+
+            if (card.matched || card.flipped || flippedCards.length === 2) {
+                return;
+            }
+
+            card.flipped = true;
+            cardElement.classList.add('flipped');
+            flippedCards.push({ card, element: cardElement, index });
+
+            if (flippedCards.length === 2) {
+                moves++;
+                updateStats();
+                checkMatch();
+            }
+        }
+
+        function checkMatch() {
+            const [first, second] = flippedCards;
+
+            if (first.card.imageUrl === second.card.imageUrl) {
+                setTimeout(() => {
+                    first.card.matched = true;
+                    second.card.matched = true;
+                    first.element.classList.add('matched');
+                    second.element.classList.add('matched');
+                    matchedPairs++;
+                    updateStats();
+                    flippedCards = [];
+
+                    if (matchedPairs === imageUrls.length) {
+                        endGame();
+                    }
+                }, 500);
+            } else {
+                setTimeout(() => {
+                    first.card.flipped = false;
+                    second.card.flipped = false;
+                    first.element.classList.remove('flipped');
+                    second.element.classList.remove('flipped');
+                    flippedCards = [];
+                }, 1000);
+            }
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timer++;
+                updateTimer();
+            }, 1000);
+        }
+
+        function updateTimer() {
+            const minutes = Math.floor(timer / 60);
+            const seconds = timer % 60;
+            document.getElementById('timer').textContent = 
+                `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function updateStats() {
+            document.getElementById('moves').textContent = moves;
+            document.getElementById('pairs').textContent = `${matchedPairs}/${imageUrls.length}`;
+        }
+
+        function endGame() {
+            clearInterval(timerInterval);
+            setTimeout(() => {
+                document.getElementById('winMessage').classList.add('show');
+            }, 500);
+        }
+
+        function resetGame() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+            initGame();
+        }
+
+        initGame();
+    </script>
+
 </body>
 </html>
