@@ -32,6 +32,37 @@
     </style>
 </head>
 <body>
+
+    <!-- ?? MENU -->
+
+    <div class="menu" id="div">
+      
+      <div class="toggle round-button yellow" title="More"><ion-icon name="add-outline" class="rotate"></ion-icon></div>
+        
+        <!-- web stamps -->
+        <a href="web_stamps.html">
+        <li style="--i:0;" title="stamps" class="round-button orange"><ion-icon name="sparkles-outline"></ion-icon></li>
+        </a>
+        <!-- pairs game -->
+        <a href="pairs_game.html">
+        <li style="--i:1;" title="pairs"  class="round-button blue"><ion-icon name="game-controller-outline"></ion-icon></li>
+        </a>
+        <!-- eco blog -->
+        <a href="eco_blog.html">
+        <li style="--i:2;" title="blog"  class="round-button red"><ion-icon name="flask-outline"></ion-icon></li>
+        </a>
+        <!-- music player -->
+        <a href="music_player.html">
+        <li style="--i:3;" title="music" class="round-button purple"><ion-icon name="musical-notes-outline"></ion-icon></li>
+        </a>
+        <!-- home -->
+        <a href="index.html">
+        <li style="--i:4;" title="home" class="round-button green"><ion-icon name="earth-outline"></ion-icon></li>
+        </a>
+
+    </div>
+
+    <!-- ?? /MENU -->
     
     <div class="container">
         <div class="export-area">
@@ -379,6 +410,84 @@
         // Restart calendar
         renderCalendar();
     </script>
+
+    <!-- !! MENU-SCRIPT -->
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+    let isDragging = false;
+    let dragStartPos = { x: 0, y: 0 };
+    let dragStartTime = 0;
+    let dragThreshold = 8; // pixels to considerate drag
+    let clickTimeThreshold = 300; // ms max to click
+    let initialElementPos = { x: 0, y: 0 };
+
+    let toggle = document.querySelector('.toggle');
+    let menu = document.querySelector('.menu');
+
+    toggle.onmousedown = function(e) {
+      e.preventDefault();
+      e.stopPropagation(); // Important: avoid propagation
+  
+    // Save initial data
+    dragStartPos.x = e.pageX;
+    dragStartPos.y = e.pageY;
+    dragStartTime = Date.now();
+    isDragging = false;
+  
+    // Prepare to possible entire menu's drag
+    menu.style.position = "absolute";
+    initialElementPos.x = parseInt(menu.style.left) || 0;
+    initialElementPos.y = parseInt(menu.style.top) || 0;
+    };
+
+    document.onmouseup = function(e) {
+      if (dragStartTime > 0) {
+        const clickDuration = Date.now() - dragStartTime;
+        
+        if (isDragging) {
+          // DRAG = active - no toggle
+          console.log("Menu arrastrado");
+        } else if (clickDuration < clickTimeThreshold) {
+          // CLICK = active - do toggle
+          menu.classList.toggle('active');
+        }
+        
+        // Reset variables
+        isDragging = false;
+        dragStartTime = 0;
+      }
+      
+      drag = null;
+    }
+
+      document.onmousemove = function(e) {
+        // Detect drag from toggle
+        if (dragStartTime > 0) {
+          const deltaX = e.pageX - dragStartPos.x;
+          const deltaY = e.pageY - dragStartPos.y;
+          const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+          
+          // Detect if is drag
+          if (distance > dragThreshold && !isDragging) {
+            isDragging = true;
+            drag = menu; // Asign entire menu to drag
+          }
+        }
+          
+      if (drag) {
+        var x = e.pageX;
+        var y = e.pageY;
+        
+        drag.style.left = x - 100 + "px";
+        drag.style.top = y - 100 + "px";
+      }
+    }
+    </script>
+
+    <!-- !! /MENU-SCRIPT -->
 
 </body>
 </html>
