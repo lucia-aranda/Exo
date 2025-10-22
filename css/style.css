@@ -480,7 +480,29 @@ p{
   margin-left: -150px;
   position: absolute;
   inset: 200px;
+  overflow: auto;
+  /* scrollbar-color: #ffea03 #2587f8;
+  scrollbar-width: thin; #not so compatible */
 }
+/* Overflow/Scroll */
+::-webkit-scrollbar {
+  width: 0px;
+}
+/* Track opc */
+/* ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+} */
+/* Handle opc */
+/* ::-webkit-scrollbar-thumb {
+  background: #8b3aed; 
+  border-radius: 10px;
+} */
+/* Handle on hover opc */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: #bf92fd; 
+} */
+/* Overflow/Scroll */
 .glass {
   background: linear-gradient(
     135deg,
