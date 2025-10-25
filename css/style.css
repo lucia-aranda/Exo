@@ -1,36 +1,60 @@
-/* INDEX */
+/* 👇 PAGE SET 👇 */
+
+.page{
+  display: grid;
+  height: 98vh;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+  "menu menu terminal-loader"
+  "container container-bg-btn box";
+  grid-gap: 0.1rem;
+}
+
+@media only screen and (max-width:100px){
+  .page{
+    grid-template-columns:1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "menu"
+    "terminal-loader"
+    "container"
+    "box"
+    "container-bg-btn";
+  }
+}
 
 .background-container {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 550px;
     overflow: hidden;
 }
-.bg-default { background-image: url('../img/field_lake.jpg'); }
-.bg-image1 { background-image: url('../img/cyber-glacier.webp'); }
-.bg-image2 { background-image: url('../img/DORFic.webp'); }
-@media (min-width: 480px) and (max-width: 765px) { /*movile*/
-}
-@media (min-width: 769px) and (max-width: 1200px) { /*tablet*/
-}
-@media (min-width: 1201px) and (max-width: 1921px) { /*computer*/
-}
 
-/* MENU */
+.bg-default { background-image: url('../img/field_lake.jpg'); }
+
+.bg-image1 { background-image: url('../img/cyber-glacier.webp'); }
+
+.bg-image2 { background-image: url('../img/DORFic.webp'); }
+
+/* 👆 PAGE SET 👆 */
+
+/* 👇 MENU 👇 */
 
 .menu
 {
     width: 200px;
     height: 200px;
-    right: 875px;
+    left: 10%;
     top: 30px;
     position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 100;
+    grid-area: menu;
 }
+
 .menu li
 {
     width: 40px;
@@ -43,6 +67,7 @@
     transition-delay: calc(0.1s * var(--i));
     transform: rotate(0deg) translateX(80px) translateY(-15px);
 }
+
 .menu.active li
 {
     transform: rotate(calc(225deg / 5 * var(--i))); 
@@ -71,6 +96,7 @@
 .yellow {
     background: linear-gradient(135deg, #ffe96e, #f8d300, #dcbb01, #f8d300, #ffe96e);
 }
+
 .round-button::before {
     content: '';
     position: absolute;
@@ -85,6 +111,7 @@
     border-radius: 50%;
     pointer-events: none;
 }
+
 li
 {
     display: flex;
@@ -98,14 +125,17 @@ li
     color: #111; 
     transition: 0.5s;
 }
+
 ion-icon{
     transform: rotate(calc(225deg / -5 * var(--i)));
 }
+
 li:hover
 {
     color: white;
     background-color: black;
 }
+
 .toggle
 {
     position: absolute;
@@ -121,39 +151,42 @@ li:hover
     font-size: 2em;
     transition: transform 1.25s;
 }
+
 .menu.active .toggle
 {
     transform: rotate(360deg);
 }
+
 .menu.active .rotate
 {
     transform: rotate(315deg);
 }
 
-/* /MENU */
+/* 👆 MENU 👆 */
 
-/* Buttons by @katarzynamarta */
+/* 👇 From CodePen.io by katarzynamarta 👇 */
 
 * {
 	box-sizing: border-box;
 	font-family: "Audiowide", sans-serif;
   z-index: 90;
 } 
+
 .container-bg-btn {
   position: fixed;
-  top: 100px;
-  left: 400px;
+  /* top: 52%;
+  left: 47%; */
+  transform: translate(240%, 160%);
   z-index: 90;
-	display: inline;
-	flex-wrap: wrap;
-  margin-top: 350px;
-  margin-left: 200px;
-	justify-content: center;
+	display: flex;
+  flex-direction: column;
+  gap: 20px;
+	justify-content: center; 
+  grid-area: container-bg-btn;
 }
+
 .container-bg-btn .btn {
-	position: absolute;
-	top: 0;
-	left: 0;
+	position: relative;
 	width: 250px;
 	height: 50px;
 	margin: 0;
@@ -161,20 +194,7 @@ li:hover
 	justify-content: center;
 	align-items: center;
 }
-.btn:first-child {
-  top: -110;
-  left: 0;
-}
 
-.btn:nth-child(2) {
-  top: -200px;
-  left: 0px;
-}
-
-.btn:last-child {
-  top: -100px;
-  left: 0px;
-}
 .container-bg-btn .btn a {
 	position: absolute;
 	top: 0;
@@ -185,7 +205,6 @@ li:hover
 	justify-content: center;
 	align-items: center;
 	background: rgba(255, 255, 255, 0.05);
-	/* box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3); */
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 30px;
@@ -197,11 +216,13 @@ li:hover
 	font-weight: 400px;
 	z-index: 80;
 	transition: 0.5s;
-	backdrop-filter: blur(15px);
+	backdrop-filter: blur(5px);
 }
+
 .container-bg-btn .btn:hover a {
 	letter-spacing: 3px;
 }
+
 .container-bg-btn .btn a::before {
 	content: "";
 	position: absolute;
@@ -214,9 +235,11 @@ li:hover
 	transition: 0.5s;
 	filter: blur(0px);
 }
+
 .container-bg-btn .btn:hover a::before {
 	transform: skewX(45deg) translate(200px);
 }
+
 .container-bg-btn .btn::before {
 	content: "";
 	position: absolute;
@@ -230,12 +253,14 @@ li:hover
 	transition: 0.5s;
 	transition-delay: 0.5;
 }
+
 .container-bg-btn .btn:hover::before /*lightup button*/ {
 	bottom: 0;
 	height: 50%;
 	width: 80%;
 	border-radius: 30px;
 }
+
 .container-bg-btn .btn::after {
 	content: "";
 	position: absolute;
@@ -249,34 +274,38 @@ li:hover
 	transition: 0.5s;
 	transition-delay: 0.5;
 }
+
 .container-bg-btn .btn:hover::after /*lightup button*/ {
 	top: 0;
 	height: 50%;
 	width: 80%;
 	border-radius: 30px;
 }
-.container-bg-btn .btn:nth-child(1)::before, /*chnage 1*/
+
+.container-bg-btn .btn:nth-child(1)::before, /*change 1*/
 .container-bg-btn .btn:nth-child(1)::after {
 	background: #4ca3f9;
 	box-shadow: 0 0 5px #4ca3f9, 0 0 15px #4ca3f9, 0 0 30px #4ca3f9, 
 		0 0 60px #4ca3f9;
 }
-.container-bg-btn .btn:nth-child(2)::before, /* 2*/
+
+.container-bg-btn .btn:nth-child(2)::before, /*change 2*/
 .container-bg-btn .btn:nth-child(2)::after {
 	background: #fe8922;
 	box-shadow: 0 0 5px #fe8922, 0 0 15px #fe8922, 0 0 30px #fe8922,
 		0 0 60px #fe8922;
 }
-.container-bg-btn .btn:nth-child(3)::before, /* 3*/
+
+.container-bg-btn .btn:nth-child(3)::before, /*change 3*/
 .container-bg-btn .btn:nth-child(3)::after {
 	background: #74a727;
 	box-shadow: 0 0 5px #74a727, 0 0 15px #74a727, 0 0 30px #74a727,
 		0 0 60px #74a727;
 }
 
-/* /Buttons by @katarzynamarta */
+/* 👆 From CodePen.io by katarzynamarta 👆 */
 
-/* EXO CIRCLE */
+/* 👇 EXO CIRCLE 👇 */
 
 .box{
     position : fixed;
@@ -287,7 +316,9 @@ li:hover
     background: rgba(50, 50, 50, 0.5);
     border-radius: 50%;
     overflow: hidden;
+    grid-area: box;
 }
+
 .box:before{
     content: '';
     position: absolute;
@@ -296,9 +327,11 @@ li:hover
     transition: 0.5s;
     animation: animate 4s linear infinite;
 }
+
 .box:hover::before{
     inset: -20px 0px;
 }
+
 @keyframes animate {
     0%{
         transform: rotate(0deg);
@@ -307,6 +340,7 @@ li:hover
         transform: rotate(360deg);
     }
 }
+
 .box::after{
     content: '';
     position: absolute;
@@ -315,6 +349,7 @@ li:hover
     border-radius: 50%;
     z-index: 1;
 }
+
 .content{
     position: absolute;
     inset: 30px;
@@ -325,6 +360,7 @@ li:hover
     justify-content: center;
     flex-direction: column;
 }
+
 .content img{
     position: absolute;
     top: 0;
@@ -337,10 +373,12 @@ li:hover
     z-index: 900;
     background-color: #2c2c2c;
 }
+
 .box:hover .content img{
     opacity: 0;
     position: 0;
 }
+
 .content h2{
     font-family: "Audiowide", sans-serif;
     position: relative;
@@ -351,23 +389,23 @@ li:hover
     letter-spacing: 0.05em;
     text-transform: uppercase;
 }
+
 .content h2 span{
     font-weight: 300;
     font-size: 0.75em;
     font-family: "Audiowide", sans-serif;
 }
 
-/* /EXO CIRCLE */
+/* 👆 EXO CIRCLE 👆 */
 
-/* CONSOLE */
-
-/* Console by @nr.bln */
+/* 👇 From CodePen.io by nr.bln 👇 */
 
 @keyframes blinkCursor {
   50% {
     border-right-color: transparent;
   }
 }
+
 @keyframes typeAndDelete {
   0%,
   10% {
@@ -382,6 +420,7 @@ li:hover
     width: 0;
   }
 }
+
 .terminal-loader {
   border: 0.1em solid #333;
   background-color: #1a1a1a;
@@ -392,14 +431,17 @@ li:hover
   width: 12em;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  position: absolute;
+  position: fixed;
   z-index: 4;
   overflow: hidden;
   box-sizing: border-box;
-  margin-left: 80%;
-  margin-top: 2%;
+  right: 3%;
+  top: 5%;
   height: 260px;
+  row-gap: 20%;
+  grid-area: terminal-loader;
 }
+
 .terminal-header {
   position: absolute;
   top: 0;
@@ -412,9 +454,11 @@ li:hover
   padding: 0 0.4em;
   box-sizing: border-box;
 }
+
 .terminal-controls {
   float: right;
 }
+
 .control {
   display: inline-block;
   width: 0.6em;
@@ -423,21 +467,26 @@ li:hover
   border-radius: 50%;
   background-color: #777;
 }
+
 .control.close {
   background-color: #e33;
 }
+
 .control.minimize {
   background-color: #ee0;
 }
+
 .control.maximize {
   background-color: #0b0;
 }
+
 .terminal-title {
   float: left;
   line-height: 1.5em;
   color: #eee;
   font-family: "Audiowide", sans-serif;
 }
+
 .text {
   display: inline-block;
   white-space: nowrap;
@@ -449,8 +498,8 @@ li:hover
   margin-top: 1.5em;
   font-family: "Audiowide", sans-serif;
 }
-/* /Console by @nr.bln */
-.texet {
+
+.texet { /*addition*/
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
@@ -458,51 +507,40 @@ li:hover
   margin-top: 1.5em;
   font-family: "Audiowide", sans-serif;
 }
-/* /CONSOLE */
 
-/* LOG */
+/* 👆 From CodePen.io by nr.bln 👆 */
+
+/* 👇 LOG 👇 */
+
 .ph{
     font-family: "Audiowide", sans-serif;
     font-size: large;
     color: #e6e6e6;
     margin: 10px;
 }
+
 p{
     font-family: "Audiowide", sans-serif;
     font-size: smaller;
     color: #e6e6e6;
     margin: 10px;
 }
+
 .container {
-  width: 400px;
+  width: 90%;
+  max-width: 400px;
   height: 300px;
-  margin: 20px;
-  margin-left: -150px;
-  position: absolute;
-  inset: 200px;
+  margin: 40px auto;
+  margin-left: 40px;
+  position: flex;
   overflow: auto;
-  /* scrollbar-color: #ffea03 #2587f8;
-  scrollbar-width: thin; #not so compatible */
+  grid-area: container;
 }
-/* Overflow/Scroll */
+
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 0px; /* Overflow/scroll */
 }
-/* Track opc */
-/* ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
-  border-radius: 10px;
-} */
-/* Handle opc */
-/* ::-webkit-scrollbar-thumb {
-  background: #8b3aed; 
-  border-radius: 10px;
-} */
-/* Handle on hover opc */
-/* ::-webkit-scrollbar-thumb:hover {
-  background: #bf92fd; 
-} */
-/* Overflow/Scroll */
+
 .glass {
   background: linear-gradient(
     135deg,
@@ -515,6 +553,7 @@ p{
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
+
 .dark-glass {
   background: linear-gradient(
     135deg,
@@ -527,6 +566,7 @@ p{
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
+
 .log-title {
   background: linear-gradient(360deg, #8b3aed, #bf92fd);
   color: white;
@@ -539,22 +579,23 @@ p{
   gap: 8px;
   font-size: 16px;
   font-family: "Audiowide", sans-serif;
+  width: 87%;
 }
+
 .log-title::before {
   content: '';
-    position: absolute;
-    top: 5%;
-    left: 5%;
-    right: 55%;
-    height: 5%;
-    background: linear-gradient(135deg, 
-        rgba(255,255,255,0.4) 5%, 
-        rgba(255,255,255,0.2) 50%, 
-        rgba(255,255,255,0.05) 100%);
-    border-radius: 5px;
-    pointer-events: none;
+  position: absolute;
+  width: 83%;
+  top: 5%;
+  left: 5%;
+  right: 55%;
+  height: 5%;
+  background: linear-gradient(135deg, 
+      rgba(255,255,255,0.4) 5%, 
+      rgba(255,255,255,0.2) 50%, 
+      rgba(255,255,255,0.05) 100%);
+  border-radius: 5px;
+  pointer-events: none;
 }
 
-/* /LOG ELEMENTS */
-
-/* /INDEX */
+/* 👆 LOG 👆 */

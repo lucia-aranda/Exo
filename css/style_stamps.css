@@ -1,0 +1,237 @@
+/* 👇 MENU 👇 */
+
+.menu
+{
+    width: 200px;
+    height: 200px;
+    left: 77%;
+    bottom: 400px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    grid-area: menu;
+}
+
+.menu li
+{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    list-style: none;
+    transform-origin: 100px;
+    transition: 0.5s;
+    transition-delay: calc(0.1s * var(--i));
+    transform: rotate(0deg) translateX(80px) translateY(-15px);
+}
+
+.menu.active li
+{
+    transform: rotate(calc(225deg / 5 * var(--i))); 
+}
+
+.green {
+    background: linear-gradient(135deg, #a8d52d, #83ac29, #74a727, #83ac29, #a8d52d);
+}
+
+.blue {
+    background: linear-gradient(135deg, #6fb9f6, #4ca3f9, #2587f8, #4ca3f9, #6fb9f6);
+}
+
+.purple {
+    background: linear-gradient(135deg, #f09bfe, #cd5ffb, #a92bf7, #cd5ffb, #f09bfe);
+}
+
+.orange {
+    background: linear-gradient(135deg, #f4cb8d, #fca44d, #fe8922, #fca44d, #f4cb8d);
+}
+
+.red {
+    background: linear-gradient(135deg, #f79c95, #fc5353, #f70707, #fc5353, #f79c95);
+}
+
+.yellow {
+    background: linear-gradient(135deg, #ffe96e, #f8d300, #dcbb01, #f8d300, #ffe96e);
+}
+
+.round-button::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 19%;
+    right: 19%;
+    height: 40%;
+    background: linear-gradient(135deg, 
+        rgba(255,255,255,0.4) 0%, 
+        rgba(255,255,255,0.2) 50%, 
+        rgba(255,255,255,0.05) 100%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+li
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: #ffffff; /*buttons color*/
+    border-radius: 50%;
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.15);
+    color: #111; 
+    transition: 0.5s;
+}
+
+ion-icon{
+    transform: rotate(calc(225deg / -5 * var(--i)));
+}
+
+li:hover
+{
+    color: white;
+    background-color: black;
+}
+
+.toggle
+{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0px 4px rgba(255, 255, 255, 0.15);
+    font-size: 2em;
+    transition: transform 1.25s;
+}
+
+.menu.active .toggle
+{
+    transform: rotate(360deg);
+}
+
+.menu.active .rotate
+{
+    transform: rotate(315deg);
+}
+
+/* 👆 MENU 👆 */
+
+/* 👇 BOARD 👇 */
+
+.page {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    height: 100vh;
+    background-image: url('../img/frutiger-2.webp');
+}
+
+.container {
+  margin: 50px;
+  position: flex;
+}
+
+.ph{
+    font-family: "Audiowide", sans-serif;
+    font-size: large;
+    color: #2f2f2f;
+    margin: 10px;
+}
+
+.space{
+  border: 5px solid #dddddd00;
+  align-content: center;
+}
+
+.content {
+  max-width: 1000px;
+  height: 500px;
+  /* margin: 50px 60px auto; */
+  position: flex;
+  overflow: auto;
+  margin: 0 auto;
+}
+
+::-webkit-scrollbar { /* Overflow/Scroll */
+  width: 20px;
+}
+
+::-webkit-scrollbar-track { /* Track*/
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb { /* Handle */
+  background: #a8d52d; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover { /* Handle on hover */
+  background: #74a727; 
+}
+
+.glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.dark-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(68, 60, 60, 0.515),
+    rgba(84, 76, 76, 0.421)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.log-title {
+  background: linear-gradient(360deg, #ffd900, #fae35f);
+  color: white;
+  padding: 0px 10px;
+  border-radius: 10px 10px 10px 0px;
+  margin-left: 10px;
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-family: "Audiowide", sans-serif;
+  width: 87%;
+}
+
+.log-title::before {
+  content: '';
+  position: absolute;
+  width: 88%;
+  top: 3%;
+  left: 2%;
+  height: 3%;
+  background: linear-gradient(135deg, 
+      rgba(255,255,255,0.4) 5%, 
+      rgba(255,255,255,0.2) 50%, 
+      rgba(255,255,255,0.05) 100%);
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+/* 👆 BOARD 👆 */
