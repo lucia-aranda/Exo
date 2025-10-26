@@ -68,20 +68,48 @@
     <div class="content glass">
       <div>
         <div class="board">
+
           <div class="buttons">
-            <button class="Btn color_one">
+            <button class="Btn color_one active" onclick="changePage('blogs/bioplastic.html', this)">
               Bioplastic
             </button>
-            <button class="Btn color_two">
+            <button class="Btn color_two" onclick="changePage('blogs/gardening.html', this)">
               Gardening
             </button>
           </div>
+
+          <div class="trapezoid-clip"></div>
+
+          <div class="iframe-container">
+              <iframe title="iframe" id="embeddedPage" src="blogs/bioplastic.html"></iframe>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
 
   <!-- ?? /BLOG -->
+
+  <!-- !! EMBED-SCRIPT -->
+
+   <script>
+      // Page Navigation
+      function changePage(url, button) {
+          // Remove active class from all buttons
+          document.querySelectorAll('.Btn').forEach(btn => {
+              btn.classList.remove('active');
+          });
+          
+          // Add active class to clicked button
+          button.classList.add('active');
+          
+          // Change iframe source
+          document.getElementById('embeddedPage').src = url;
+      }
+    </script>
+
+  <!-- !! EMBED-SCRIPT -->
 
   <!-- !! MENU-SCRIPT -->
 
