@@ -131,7 +131,7 @@ li:hover
     background-repeat: no-repeat;
     overflow: hidden;
     height: 100vh;
-    background-image: url('../img/frutiger-2.webp');
+    background-image: url('../img/frutiger-eco.webp');
 }
 
 .container {
@@ -154,7 +154,6 @@ li:hover
 .content {
   max-width: 1000px;
   height: 500px;
-  /* margin: 50px 60px auto; */
   position: flex;
   overflow: auto;
   margin: 0 auto;
@@ -170,12 +169,12 @@ li:hover
 }
 
 ::-webkit-scrollbar-thumb { /* Handle */
-  background: #a8d52d; 
+  background: #fc5353; 
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover { /* Handle on hover */
-  background: #74a727; 
+  background: #f70707; 
 }
 
 .glass {

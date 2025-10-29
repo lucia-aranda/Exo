@@ -131,7 +131,7 @@ li:hover
     background-repeat: no-repeat;
     overflow: hidden;
     height: 100vh;
-    background-image: url('../img/frutiger-eco.webp');
+    background-image: url('../img/frutiger-2.webp');
 }
 
 .container {
@@ -160,21 +160,7 @@ li:hover
 }
 
 ::-webkit-scrollbar { /* Overflow/Scroll */
-  width: 20px;
-}
-
-::-webkit-scrollbar-track { /* Track */
-  box-shadow: inset 0 0 5px grey; 
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb { /* Handle */
-  background: #a8d52d; 
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover { /* Handle on hover */
-  background: #74a727; 
+  width: 0px;
 }
 
 .glass {
@@ -234,13 +220,14 @@ li:hover
 }
 
 .board {
-    background: #e4e4e4;
+    background: #eeeeee;
     border-radius: 8px;
     max-width: 800px;
     height: 450px;
     margin: 25px 25px auto;
     position: flex;
     overflow: auto;
+    background-image: url('../img/bg.png');
 }
 
 /* 👆 /BOARD 👆 */
@@ -252,8 +239,6 @@ li:hover
     height: 400px;
     border: none;
     border-radius: 8px;
-    overflow: hidden;
-    background-color: #dcbb01;
 }
 
 .iframe-container iframe {
@@ -262,33 +247,15 @@ li:hover
     border: none;
 }
 
-/* 👆 EMBEDDED 👆 */
-
-/* 👇 NAV 👇 */
-
-.trapezoid-clip {
-    width: 400px;
-    height: 100px;
-    background-color: #303030;
-    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
-    position: fixed;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    margin-right: 20px;
-    top: 0;
-    right: 0;
-}
-
-/* 👆 NAV 👆 */        
+/* 👆 EMBEDDED 👆 */   
 
 /* 👇 From Uiverse.io by vinodjangid07 👇 */ 
 
 .buttons {
     display: flex;
     gap: 30px;
+    margin: 20px 20px auto;
     margin-bottom: 20px;
-    margin-top: 20px;
-    margin-left: 20px;
 }
 
 .Btn {

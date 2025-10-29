@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioplastic</title>
+    <!-- Page's icon -->
+    <link rel="icon" href="img/exo.png">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../css/style_bioplastic.css">
+     <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+              .then(registration => {
+                console.log('Service Worker registrado con éxito:', registration);
+              })
+              .catch(error => {
+                console.error('Error al registrar el Service Worker:', error);
+              });
+          });
+        }
+    </script>
+    <!-- Font Source -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="left">
+
+            <div class="title">
+                <div class="title_text">What are the steps?<p class="line"></p></div>
+                <div class="pre">
+                    <div class="other">What do I need? →</div>
+                    <div class="media1"><img src="../img/world-headphones.png" width="30" height="30" alt=""></div>
+                </div>
+            </div>
+
+            <div class="text">
+                <p>///////////////////////////////////</p>
+                <p>You need to do...</p>
+                <p>///////////////////////////////////</p>
+            </div>
+
+            <div class="tip_section">
+                <div class="regular_tips">
+                    <div class="tip1">💕1</div>
+                    <div class="tip2">👻2</div>
+                    <div class="tip3">👽3</div>
+                </div>
+                <div class="help_tips">⚠️do this in case⚠️</div>
+            </div>
+            
+        </div>
+
+        <div class="right">
+
+            <div class="ingredients">
+                <p><label><input value="on" name="dummy" type="checkbox" class="bubble"></label>one</p>
+                <p><label><input value="on" name="dummy" type="checkbox" class="bubble"></label>two</p>
+                <p><label><input value="on" name="dummy" type="checkbox" class="bubble"></label>three</p>
+                <p><label><input value="on" name="dummy" type="checkbox" class="bubble"></label>four</p>
+            </div>
+
+            <div class="medias">
+            <div class="complete_frame">x</div>
+            <div class="frames">
+                <div class="frame1">w</div>
+                <div class="frame2">z</div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

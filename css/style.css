@@ -174,8 +174,8 @@ li:hover
 
 .container-bg-btn {
   position: fixed;
-  /* top: 52%;
-  left: 47%; */
+  /* top: 30%;
+  left: 30%; */
   transform: translate(240%, 160%);
   z-index: 90;
 	display: flex;

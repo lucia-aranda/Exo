@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gardening</title>
+    <!-- Page's icon -->
+    <link rel="icon" href="img/exo.png">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../css/style_gardening.css">
+     <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+              .then(registration => {
+                console.log('Service Worker registrado con éxito:', registration);
+              })
+              .catch(error => {
+                console.error('Error al registrar el Service Worker:', error);
+              });
+          });
+        }
+    </script>
+    <!-- Font Source -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+    </style>
+</head>
+<body>
+
+    <div class="container">
+      <div class="one">
+        <div class="head-one line-clip-one hint"> &nbsp; ⚠︎ ⁝ Soil rules</div>
+        <div class="title-one title">🪴The Crucial First Steps<br>//////////////////////////////</div>
+        <div class="text-one text"><span class="bold">Seeds must be sow</span> without the shell (if it 
+          has one) and brand new (taken out recently), <span class="highlight">3cm or less under the 
+          surface</span>. They grow easy in rain times so make sure the season time is right. 
+          <span class="underline">They share properties, so put more than 1 seed in the same pot</span>. 
+          Soil is gather from the first 10cm of ground, which has to be a green place.</div>
+        <div class="foot-one line-clip-two"></div>
+      </div>
+
+      <div class="two">
+        <div class="pic4"><img src="../img/soil.jpg" title="soil" class="img border"></div>
+        <div class="pic5"><img src="../img/plant.jpg" title="plant" class="img border"></div>
+        <div class="pic6"><img src="../img/seed.jpg" title="seed" class="img border"></div>
+        <div class="pic7"><img src="../img/sun.jpg" title="sun" class="img border"></div>
+      </div>
+
+      <div class="three">
+        <div class="pic1"><img class="gif border" src="../img/frutiger-1.webp" alt="img"></div>
+        <div class="pic2"><img class="gif border" src="https://i.postimg.cc/tT90rx3X/jebedaja.gif" alt="GIF" width="100" height="100"></div>
+        <div class="pic3"><img class="gif" src="https://i.postimg.cc/4dcGMgM5/earth9.gif" alt="GIF" width="50" height="50"></div>
+      </div>
+
+      <div class="four">
+        <div class="head-two line-clip-one hint">&nbsp; ⓘ ⁝ Now What?</div>
+        <div class="title-two title">📋Post-Planting Must-Dos</div>
+        <div class="text-two text"><span class="highlight">The plant must be moist at first, not wet, 
+          not dry</span> (at night or morning), with a sharp stick <span class="bold">you can know how 
+          moist is the soil</span>. If leaves are yellow and soft, less water, if they feel crunchy, 
+          more water. <span class="underline">They start growing about a week after</span> sow them, 
+          they like company, so put them nearby other plants, and while they <span class="bold">grow
+          </span> they'll need more sunlight (if were talking about a tree/sun plant).
+        </div>
+        <div class="foot-two line-clip-two"></div>
+      </div>
+    </div>
+    
+</body>
+</html>

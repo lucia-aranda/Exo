@@ -1,0 +1,156 @@
+.container {  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "one two"
+    "three four";
+}
+
+.one {  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 0.5fr 2fr 0.5fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "head-one"
+    "title-one"
+    "text-one"
+    "foot-one";
+  grid-area: one;
+}
+
+.head-one { grid-area: head-one; }
+
+.foot-one { grid-area: foot-one; }
+
+.text-one { grid-area: text-one; }
+
+.title-one { grid-area: title-one; }
+
+.two {  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 14px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "pic7 pic6"
+    "pic4 pic5";
+  grid-area: two;
+  margin: 20px auto;
+}
+
+.pic4 { grid-area: pic4; }
+
+.pic5 { grid-area: pic5; }
+
+.pic6 { grid-area: pic6; }
+
+.pic7 { grid-area: pic7; }
+
+.three {  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "pic2 pic3"
+    "pic1 pic1";
+  grid-area: three;
+  text-align: center;
+}
+
+.pic1 { grid-area: pic1; }
+
+.pic2 { grid-area: pic2; }
+
+.pic3 { grid-area: pic3; }
+
+.four {  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 0.5fr 2.5fr 0.5fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "head-two"
+    "title-two"
+    "text-two"
+    "foot-two";
+  grid-area: four;
+}
+
+.head-two { grid-area: head-two; }
+
+.title-two { grid-area: title-two; }
+
+.text-two { grid-area: text-two; }
+
+.foot-two { grid-area: foot-two; }
+
+.line-clip-one {
+    display: flex;
+    width: 200px auto;
+    height: 40px;
+    margin: 0px 10px auto;
+    background-color: #74a727;
+    clip-path: polygon(0% 0%, 95% 0%, 100% 100%, 0% 100%);
+}
+
+.line-clip-two {
+    display: flex;
+    width: 200px auto;
+    height: 30px;
+    margin: 0px 10px auto;
+    background-color: #83ac29;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 5% 100%);
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+.gif {
+  width: 80%;
+  height: auto;
+}
+
+.border {
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #74a727;
+}
+
+.hint {
+  align-items: center;
+  font-weight: lighter;
+}
+
+.title {
+  font-size: large;
+  margin: 5px;
+}
+
+.text {
+  text-align: justify;
+  margin: 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.highlight {
+  background-color: #a8d52d;
+}
+
+body {
+  font-family: "Audiowide", sans-serif;
+  background-image: url('../img/bgg.jpg');
+}
