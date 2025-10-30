@@ -1,7 +1,78 @@
+body {
+  font-family: "Audiowide", sans-serif;
+  background-color: #e6eaed;
+}
+
+.hint {
+  font-weight: lighter;
+  color: #788c9d;
+}
+
+.hint_two {
+  font-weight: lighter;
+  color: #788c9d;
+  padding: 15px;
+}
+
+.title_two {
+  font-weight: lighter;
+  color: #788c9d;
+  font-size: 23px;
+}
+
+.item {
+  text-align: justify;
+  font-weight: lighter;
+  color: #788c9d;
+  padding: 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.highlight {
+  background-color: #6fb9f6;
+}
+
+.border {
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #2587f8;
+}
+
+.dashed {
+  border-width: 3px;
+  border-style: dashed;
+  border-color: #2587f8;
+}
+
+.card {
+  background-color: #a1c7e2;
+  border-radius: 10px;
+  margin: 40px auto;
+}
+
+.card_two {
+  background-color: #a1c7e2;
+  border-radius: 10px;
+  margin: 33px auto;
+}
+
+.size {
+  width: 80%;
+  height: auto;
+}
+
 .container {  display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-  gap: 0px 0px;
+  gap: 0px 20px;
   grid-auto-flow: row;
   grid-template-areas:
     "left right";
@@ -9,33 +80,42 @@
 
 .left {  display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 0fr 0.5fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "title"
+    "head"
     "text"
     "tip_section";
   grid-area: left;
 }
 
-.text { grid-area: text; }
+.text { 
+  grid-area: text; 
+  text-align: justify;
+  margin: 10px;
+  color: #788c9d;
+}
 
 .tip_section {  display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0px 0px;
+  grid-template-rows: 1fr 0.9fr;
+  gap: 0px 10px;
   grid-auto-flow: row;
   grid-template-areas:
     "regular_tips"
     "help_tips";
   grid-area: tip_section;
+  margin: 10px;
+  text-align: center;
+  background-color: #d2e1ef;
+  border-radius: 10px;
 }
 
 .regular_tips {  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  gap: 0px 0px;
+  gap: 12px 12px;
   grid-auto-flow: row;
   grid-template-areas:
     "tip1 tip2 tip3";
@@ -50,36 +130,38 @@
 
 .help_tips { grid-area: help_tips; }
 
-.title {  display: grid;
+.head {  display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.5fr 1.5fr;
+  grid-template-rows: 0fr 0fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "title_text"
-    "pre";
-  grid-area: title;
+    "title"
+    "icon";
+  grid-area: head;
 }
 
-.title_text { 
-  grid-area: title_text; 
-  margin: 20px;
+.title { 
+  grid-area: title; 
+  margin: 3px;
   font-family: "Audiowide", sans-serif;
+  font-size: large;
+  color: #6fb9f6;
 }
 
 .line {
-  border-top: 2px solid rgb(105, 123, 133); 
+  border-top: 2px solid #788c9d; 
   width: 100%;
 }
 
-.pre {  display: grid;
-  grid-template-columns: 1fr 1fr;
+.icon {  display: grid;
+  grid-template-columns: 1fr 1.5fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
     "media1 other";
-  grid-area: pre;
+  grid-area: icon;
 }
 
 .other { grid-area: other; }
@@ -99,10 +181,17 @@
 
 .ingredients { grid-area: ingredients; }
 
+.align {
+  display: flex;
+  grid-auto-flow: column;
+  align-items: flex-start;
+  gap: 0px;
+}
+
 .medias {  display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-  gap: 0px 0px;
+  gap: 0px 40px;
   grid-auto-flow: row;
   grid-template-areas:
     "complete_frame frames";
@@ -233,8 +322,8 @@ label {
   border-radius: 0.25em;
   width: 0.5em;
 }
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
+
+@media (prefers-reduced-motion: reduce) { /* Reduced motion */
   label {
     animation: none;
   }
@@ -260,8 +349,8 @@ label {
     transform: translate3d(0,0,-1px);
   }
 }
-/* Animations */
-@keyframes float74 {
+
+@keyframes float74 { /* Animations */
   from, to {
     transform: translate(0,3%);
   }

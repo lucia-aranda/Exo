@@ -1,3 +1,73 @@
+body {
+  font-family: "Audiowide", sans-serif;
+  background-image: url('../img/bgg.jpg');
+}
+
+.line-clip-one {
+    display: flex;
+    width: 200px auto;
+    height: 40px;
+    margin: 0px 10px auto;
+    background-color: #74a727;
+    clip-path: polygon(0% 0%, 95% 0%, 100% 100%, 0% 100%);
+}
+
+.line-clip-two {
+    display: flex;
+    width: 200px auto;
+    height: 30px;
+    margin: 0px 10px auto;
+    background-color: #83ac29;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 5% 100%);
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+.gif {
+  width: 80%;
+  height: auto;
+}
+
+.border {
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #74a727;
+}
+
+.hint {
+  align-items: center;
+  font-weight: lighter;
+  color: #eeeeee;
+}
+
+.title {
+  font-size: large;
+  margin: 5px;
+  color: #5f891f;
+}
+
+.text {
+  text-align: justify;
+  margin: 10px;
+  color: #24a600;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.highlight {
+  background-color: #a8d52d;
+}
+
 .container {  display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -87,70 +157,3 @@
 .text-two { grid-area: text-two; }
 
 .foot-two { grid-area: foot-two; }
-
-.line-clip-one {
-    display: flex;
-    width: 200px auto;
-    height: 40px;
-    margin: 0px 10px auto;
-    background-color: #74a727;
-    clip-path: polygon(0% 0%, 95% 0%, 100% 100%, 0% 100%);
-}
-
-.line-clip-two {
-    display: flex;
-    width: 200px auto;
-    height: 30px;
-    margin: 0px 10px auto;
-    background-color: #83ac29;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 5% 100%);
-}
-
-.img {
-  width: 100%;
-  height: auto;
-}
-
-.gif {
-  width: 80%;
-  height: auto;
-}
-
-.border {
-  border-width: 5px;
-  border-style: solid;
-  border-radius: 10px;
-  border-color: #74a727;
-}
-
-.hint {
-  align-items: center;
-  font-weight: lighter;
-}
-
-.title {
-  font-size: large;
-  margin: 5px;
-}
-
-.text {
-  text-align: justify;
-  margin: 10px;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-.underline {
-  text-decoration: underline;
-}
-
-.highlight {
-  background-color: #a8d52d;
-}
-
-body {
-  font-family: "Audiowide", sans-serif;
-  background-image: url('../img/bgg.jpg');
-}
