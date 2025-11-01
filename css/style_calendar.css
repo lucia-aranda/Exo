@@ -1,16 +1,18 @@
-/* MENU */
+/* 👇 MENU 👇 */
+
 .menu
 {
     width: 200px;
     height: 200px;
     right: 30px;
-    top: 30px;
+    bottom: 360px;
     position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 100;
 }
+
 .menu li
 {
     width: 40px;
@@ -23,6 +25,7 @@
     transition-delay: calc(0.1s * var(--i));
     transform: rotate(0deg) translateX(80px) translateY(-15px);
 }
+
 .menu.active li
 {
     transform: rotate(calc(225deg / 5 * var(--i))); 
@@ -51,6 +54,7 @@
 .yellow {
     background: linear-gradient(135deg, #ffe96e, #f8d300, #dcbb01, #f8d300, #ffe96e);
 }
+
 .round-button::before {
     content: '';
     position: absolute;
@@ -65,6 +69,7 @@
     border-radius: 50%;
     pointer-events: none;
 }
+
 li
 {
     display: flex;
@@ -78,14 +83,17 @@ li
     color: #111; 
     transition: 0.5s;
 }
+
 ion-icon{
     transform: rotate(calc(225deg / -5 * var(--i)));
 }
+
 li:hover
 {
     color: white;
     background-color: black;
 }
+
 .toggle
 {
     position: absolute;
@@ -101,15 +109,20 @@ li:hover
     font-size: 2em;
     transition: transform 1.25s;
 }
+
 .menu.active .toggle
 {
     transform: rotate(360deg);
 }
+
 .menu.active .rotate
 {
     transform: rotate(315deg);
 }
-/* /MENU */
+
+/* 👆 MENU 👆 */
+
+/* 👇 CALENDAR 👇 */
 
 * {
     margin: 0;
@@ -394,9 +407,7 @@ body {
     object-fit: cover;
 }
 
-/* responsive */
-
-@media (max-width: 1024px) {
+@media (max-width: 1024px) { /*responsive to wider screens*/
     .container {
         max-width: 900px;
     }
@@ -406,7 +417,7 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /*responsive to smaller screens*/
     .container {
         max-width: 100%;
     }
@@ -429,3 +440,5 @@ body {
         height: 45px;
     }
 }
+
+/* 👆 CALENDAR 👆 */

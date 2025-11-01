@@ -1,0 +1,371 @@
+body {
+  font-family: "Audiowide", sans-serif;
+  background-color: #e6eaed;
+}
+
+.hint {
+  font-weight: lighter;
+  color: #788c9d;
+}
+
+.hint_two {
+  font-weight: lighter;
+  color: #788c9d;
+  padding: 15px;
+}
+
+.title_two {
+  font-weight: lighter;
+  color: #788c9d;
+  font-size: 23px;
+}
+
+.item {
+  text-align: justify;
+  font-weight: lighter;
+  color: #788c9d;
+  padding: 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.highlight {
+  background-color: #6fb9f6;
+}
+
+.border {
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #2587f8;
+}
+
+.dashed {
+  border-width: 3px;
+  border-style: dashed;
+  border-color: #2587f8;
+}
+
+.card {
+  background-color: #a1c7e2;
+  border-radius: 10px;
+  margin: 40px auto;
+}
+
+.card_two {
+  background-color: #a1c7e2;
+  border-radius: 10px;
+  margin: 33px auto;
+}
+
+.size {
+  width: 80%;
+  height: auto;
+}
+
+.container {  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 20px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "left right";
+}
+
+.left {  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 0fr 0.5fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "head"
+    "text"
+    "tip_section";
+  grid-area: left;
+}
+
+.text { 
+  grid-area: text; 
+  text-align: justify;
+  margin: 10px;
+  color: #788c9d;
+}
+
+.tip_section {  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 0.9fr;
+  gap: 0px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "regular_tips"
+    "help_tips";
+  grid-area: tip_section;
+  margin: 10px;
+  text-align: center;
+  background-color: #d2e1ef;
+  border-radius: 10px;
+}
+
+.regular_tips {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 12px 12px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "tip1 tip2 tip3";
+  grid-area: regular_tips;
+}
+
+.tip1 { grid-area: tip1; }
+
+.tip2 { grid-area: tip2; }
+
+.tip3 { grid-area: tip3; }
+
+.help_tips { grid-area: help_tips; }
+
+.head {  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0fr 0fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "title"
+    "icon";
+  grid-area: head;
+}
+
+.title { 
+  grid-area: title; 
+  margin: 3px;
+  font-family: "Audiowide", sans-serif;
+  font-size: large;
+  color: #6fb9f6;
+}
+
+.line {
+  border-top: 2px solid #788c9d; 
+  width: 100%;
+}
+
+.icon {  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "media1 other";
+  grid-area: icon;
+}
+
+.other { grid-area: other; }
+
+.media1 { grid-area: media1; }
+
+.right {  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "ingredients"
+    "medias";
+  grid-area: right;
+}
+
+.ingredients { grid-area: ingredients; }
+
+.align {
+  display: flex;
+  grid-auto-flow: column;
+  align-items: flex-start;
+  gap: 0px;
+}
+
+.medias {  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 40px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "complete_frame frames";
+  grid-area: medias;
+}
+
+.complete_frame { grid-area: complete_frame; }
+
+.frames {  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "frame1"
+    "frame2";
+  grid-area: frames;
+}
+
+.frame1 { grid-area: frame1; }
+
+.frame2 { grid-area: frame2; }
+
+/* 👇 From Uiverse.io by Nawsome 👇 */ 
+
+label, .bubble {
+  display: block;
+  -webkit-tap-highlight-color: transparent;
+}
+
+label {
+  animation: float74 4s ease-in-out infinite;
+}
+
+.bubble, .bubble:before, .bubble:after {
+  transition-duration: 0.2s;
+}
+
+.bubble, .bubble:after {
+  border-radius: 50%;
+}
+
+.bubble {
+  background-image: radial-gradient(8% 8% at 22% 28%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 23% 27%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 24% 26%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 25% 25%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 26% 24%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 27% 23%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 28% 22%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%);
+  box-shadow: 0 -0.06em 0.1em hsl(0,90%,100%) inset,
+		0 -0.15em 0.4em hsl(0,90%,45%) inset,
+		0 0.05em 0.05em hsl(0,90%,45%) inset,
+		0.05em 0 0.1em hsl(0,90%,100%) inset,
+		-0.05em 0 0.1em hsl(0,90%,100%) inset,
+		0 0.1em 0.4em hsl(0,90%,60%) inset;
+  cursor: pointer;
+  position: relative;
+  width: 3em;
+  height: 3em;
+  transform-style: preserve-3d;
+  transition-property: box-shadow, transform, width, height;
+  transition-timing-function: ease-in-out, ease-in-out, var(--bubbleTiming), var(--bubbleTiming);
+  will-change: transform;
+  -webkit-appearance: none;
+  appearance: none;
+  z-index: 0;
+}
+
+.bubble:before, .bubble:after {
+  content: "";
+  display: block;
+  position: absolute;
+  transition-timing-function: var(--bubbleTiming);
+}
+
+.bubble:before {
+  border-radius: 0.75em;
+  box-shadow: 0 0 0 0.5em hsl(0,0%,100%) inset;
+  filter: drop-shadow(0.6em 0.6em 4px hsla(0,0%,0%,0.2));
+  top: 50%;
+  left: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  transform: translate3d(-50%,-50%,-1px);
+  z-index: -1;
+}
+
+.bubble:after {
+  background: radial-gradient(100% 100% at center,hsla(0,0%,0%,0) 35%,hsla(0,0%,0%,0.2) 48%,hsla(0,0%,0%,0) 50%);
+  filter: blur(4px);
+  top: 0.6em;
+  left: 0.6em;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0,0,-1px);
+  z-index: -2;
+}
+
+.bubble:focus, .bubble:hover {
+  transform: scale(1.1);
+  outline: none;
+}
+
+.bubble:focus:active, .bubble:hover:active {
+  width: 3.6em;
+  height: 2.4em;
+}
+
+.bubble:focus:before, .bubble:hover:before {
+  filter: drop-shadow(0.75em 0.75em 4px hsla(0,0%,0%,0.2));
+}
+
+.bubble:focus:after, .bubble:hover:after {
+  transform: translate3d(0.15em,0.15em,-1px);
+}
+
+.bubble:checked {
+  box-shadow: 0 -0.06em 0.1em hsl(120,90%,100%) inset,
+		0 -0.15em 0.4em hsl(120,90%,45%) inset,
+		0 0.05em 0.05em hsl(120,90%,45%) inset,
+		0.05em 0 0.1em hsl(120,90%,100%) inset,
+		-0.05em 0 0.1em hsl(120,90%,100%) inset,
+		0 0.1em 0.4em hsl(120,90%,60%) inset;
+}
+
+.bubble:checked:before {
+  border-radius: 0.25em;
+  width: 0.5em;
+}
+
+@media (prefers-reduced-motion: reduce) { /* Reduced motion */
+  label {
+    animation: none;
+  }
+
+  .bubble, .bubble:before, .bubble:after {
+    transition-duration: 0s;
+  }
+
+  .bubble:focus, .bubble:hover {
+    transform: scale(1);
+  }
+
+  .bubble:focus:active, .bubble:hover:active {
+    width: 3em;
+    height: 3em;
+  }
+
+  .bubble:focus:before, .bubble:hover:before {
+    filter: drop-shadow(0.6em 0.6em 4px hsla(0,0%,0%,0.2));
+  }
+
+  .bubble:focus:after, .bubble:hover:after {
+    transform: translate3d(0,0,-1px);
+  }
+}
+
+@keyframes float74 { /* Animations */
+  from, to {
+    transform: translate(0,3%);
+  }
+
+  25% {
+    transform: translate(-3%,0);
+  }
+
+  50% {
+    transform: translate(0,-3%);
+  }
+
+  75% {
+    transform: translate(3%,0);
+  }
+}
+
+/* 👆 From Uiverse.io by Nawsome 👆 */ 
