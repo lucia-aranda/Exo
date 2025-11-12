@@ -44,7 +44,7 @@ This is a PWA, wich means you can install it from the browser to your own mobile
 
 ## Contributing
 
-Feel free to DM me 💬🗨️ if you'd like to contribute to this project, as well if you have any question(s)/need help/concern(s) about :)
+Feel free to DM me 💬 if you'd like to contribute to this project, as well if you have any question(s)/need help/concern(s) about :)
 
 ## Quick visualization
 
