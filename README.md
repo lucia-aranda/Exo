@@ -18,11 +18,11 @@
 
 ## Prerequisites
 
-To run this project locally, you need a code environment installed on your machine:
+To run the project locally, you need a code environment installed on your machine:
 
 - `Visual Studio Code (or any other similar software)`
 
-And this optional extension (omit if you already have a virtual server):
+This optional extension (omit if you already have a virtual server):
 
 ```
 Live Server by Ritwick Dey
