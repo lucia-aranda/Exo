@@ -48,4 +48,4 @@ Feel free to DM me 💬 if you'd like to contribute to this project, as well if 
 
 ## Quick visualization
 
-<img src="exo.gif">
+<img src="img/exo.gif">
