@@ -40,7 +40,9 @@ You can explore the DOM structure, inline styles, and event-driven behaviors for
 
 ## Installation
 
-This is a PWA, wich means you can install it from the browser to your own mobile phone 📱 or desk 💻, pressing the upper right three dots and searching for the download button.
+This is a PWA, wich means you can install it from the browser to your own mobile phone 📱 or desk 💻, searching the installation button on the browser's menu.
+
+<img alt="CellPhone" src="img/mark_cp.png" width="50px"> <img alt="PersonalComputer" src="img/mark_pc.png" width="50px">
 
 ## Contributing
 
