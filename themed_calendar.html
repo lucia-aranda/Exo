@@ -358,11 +358,11 @@
                 });
                 
                 // Use window.jspdf.jsPDF
-                const pdf = new window.jspdf.jsPDF('landscape', 'mm', 'a4');
+                const pdf = new window.jspdf.jsPDF('portrait', 'mm', 'a4');
                 
                 // Page's dimentions A4 horizontal: 297mm x 210mm
-                const pageWidth = 297;
-                const pageHeight = 210;
+                const pageWidth = 210; //centered
+                const pageHeight = 250; //general size
                 
                 // Calculate dimentions keeping proportions
                 const canvasRatio = canvas.width / canvas.height;
@@ -374,11 +374,11 @@
                     // Wider canvas, adjust by width
                     imgWidth = pageWidth - 20; // 10mm margin on each side
                     imgHeight = imgWidth / canvasRatio;
-                    xPosition = 10;
+                    xPosition = 20;
                     yPosition = (pageHeight - imgHeight) / 2;
                 } else {
                     // Higher canvas, adjust by height
-                    imgHeight = pageHeight - 20; // 10mm margin top and bottom
+                    imgHeight = pageHeight - 10; // 10mm margin top and bottom
                     imgWidth = imgHeight * canvasRatio;
                     xPosition = (pageWidth - imgWidth) / 2;
                     yPosition = 10;
