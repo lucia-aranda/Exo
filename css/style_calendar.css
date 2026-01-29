@@ -336,7 +336,8 @@ body {
 .bg-option {
     width: 80px;
     height: 60px;
-    border: 3px solid transparent;
+    border: 3px solid;
+    color: #2587f8;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
