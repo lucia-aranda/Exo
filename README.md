@@ -34,6 +34,8 @@ And internet conection 🌐 to some features work propertly.
 
 This consist on a basic project, taking 2000s design aesthetics such as: Skeuomorphism, Windows XP, Frutiger Aero, Cyber Core, Vector-Flourish, DORFic, Dark Aurora, Cyber Glacier, Frutiger Eco, DSi, Future Core and Glassmorphism. 🌎
 
+It also contains cozy aesthetics based on ACNH videogame. <img alt="ACNH" src="img/acnh_hangout.png" width="10px">
+
 A retro-inspired webpage that incorporates JavaScript animations, CSS styling, and a curated set of early 2000s web design elements. It features grid templates, hover effects, gradients, backdrop-filters, draggable menu, PDF exportation and embedded content. The page blends nostalgic aesthetics with some modern front-end features, offering a mix of 3D elements, changing backgrounds, and skeuomorphic design cues. 🖱️
 
 You can explore the DOM structure, inline styles, and event-driven behaviors for both educational insight and creative inspiration. 📚
