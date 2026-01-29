@@ -32,27 +32,27 @@
 }
 
 .green {
-    background: linear-gradient(135deg, #a8d52d, #83ac29, #74a727, #83ac29, #a8d52d);
+    background: linear-gradient(135deg, #bee893, #a3ea5b, #88ea27, #a3ea5b, #bee893);
 }
 
 .blue {
-    background: linear-gradient(135deg, #6fb9f6, #4ca3f9, #2587f8, #4ca3f9, #6fb9f6);
+    background: linear-gradient(135deg, #0cc6b8, #06c8b8, #00c5b4, #06c8b8, #0cc6b8);
 }
 
 .purple {
-    background: linear-gradient(135deg, #f09bfe, #cd5ffb, #a92bf7, #cd5ffb, #f09bfe);
+    background: linear-gradient(135deg, #8b9df2, #7c91f9, #6e85fa, #7c91f9, #8b9df2);
 }
 
 .orange {
-    background: linear-gradient(135deg, #f4cb8d, #fca44d, #fe8922, #fca44d, #f4cb8d);
+    background: linear-gradient(135deg, #fdd7ac, #fbbd75, #f89f3a, #fbbd75, #fdd7ac);
 }
 
 .red {
-    background: linear-gradient(135deg, #f79c95, #fc5353, #f70707, #fc5353, #f79c95);
+    background: linear-gradient(135deg, #fdc0c7, #fca2ad, #fc8694, #fca2ad, #fdc0c7);
 }
 
 .yellow {
-    background: linear-gradient(135deg, #ffe96e, #f8d300, #dcbb01, #f8d300, #ffe96e);
+    background: linear-gradient(135deg, #ffe100, #fce006, #f9de0f, #fce006, #ffe100);
 }
 
 .round-button::before {
@@ -80,7 +80,7 @@ li
     background: #ffffff; /*buttons color*/
     border-radius: 50%;
     box-shadow: 0 0px 4px rgba(0, 0, 0, 0.15);
-    color: #111; 
+    color: #ffffff; 
     transition: 0.5s;
 }
 
@@ -131,9 +131,12 @@ li:hover
 }
 
 body {
-    font-family: "Audiowide", sans-serif;
-    background-image: url('../img/frutiger-world.webp');
+    font-family: "Nunito", sans-serif;
+    font-style: normal;
+    font-optical-sizing: auto;
+    background-image: url('../img/acnh-8.jpg');
     background-repeat: no-repeat;
+    background-position: right;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -152,7 +155,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #ffffff;
+    color: 	#74e0aa;
     margin-bottom: 20px;
     font-size: 2.5em;
 }
@@ -162,13 +165,15 @@ h1 {
     justify-content: space-around;
     margin-bottom: 20px;
     padding: 15px;
-    background: linear-gradient(135deg, #74a727 0%, #2587f8 100%);
+    background: linear-gradient(135deg, #fdc0c7 0%, #fdc0c7 100%);
     border-radius: 10px;
     color: white;
 }
 
 .stat {
     text-align: center;
+    font-weight: bold;
+    font-size: large;
 }
 
 .stat-label {
@@ -191,7 +196,7 @@ h1 {
 
 .card {
     aspect-ratio: 1;
-    background: linear-gradient(135deg, #74a727 0%, #2587f8 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #8b9df2 100%);
     border-radius: 10px;
     cursor: pointer;
     position: relative;
@@ -239,7 +244,7 @@ h1 {
 }
 
 .card-front {
-    background: linear-gradient(135deg, #74a727 100%);
+    background: linear-gradient(135deg,#8b9df2 100%);
     color: white;
 }
 
@@ -253,16 +258,17 @@ h1 {
 }
 
 button {
-    background: linear-gradient(360deg, #74a727 0%, #2587f8 100%);
+    background: linear-gradient(360deg, #74e0aa 0%, #0cc6b8 100%);
     color: white;
     border: none;
     padding: 15px 30px;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: x-large;
     margin: 20px;
     transition: all 0.3s ease;
-    font-family: "Audiowide", sans-serif;
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
     position: relative;
 }
 
@@ -294,7 +300,7 @@ button:active {
     display: none;
     text-align: center;
     padding: 20px;
-    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    background: linear-gradient(360deg, #74e0aa 0%, #74e0aa 100%);
     border-radius: 10px;
     margin-bottom: 20px;
     color: white;
@@ -316,15 +322,6 @@ button:active {
 
 .win-message.show {
     display: block;
-}
-
-.acnh_button{
-    text-align: center;
-}
-
-.img_btn{
-    width: 50px;
-    height: 50px;
 }
 
 /* 👆 GAME 👆 */

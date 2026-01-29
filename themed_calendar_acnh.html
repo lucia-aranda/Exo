@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exo - Themed Calendar</title>
+    <title>Exo - Themed Calendar Animal Crossing New Horizons</title>
     <!-- Page's icon -->
     <link rel="icon" href="img/exo.png">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/style_calendar.css">
+    <link rel="stylesheet" href="css/style_calendar_acnh.css">
      <!-- Manifest -->
     <link rel="manifest" href="manifest.json">
     <!-- Service Worker -->
@@ -28,7 +28,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <!-- Font Source -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
     </style>
 </head>
 <body>
@@ -37,7 +37,7 @@
 
     <div class="menu" id="div">
       
-      <div class="toggle round-button yellow" title="More"><ion-icon name="add-outline" class="rotate"></ion-icon></div>
+      <div class="toggle round-button yellow" title="More"><ion-icon name="add-outline" class="rotate" style="color: white;"></ion-icon></div>
         
         <!-- web stamps -->
         <a href="web_stamps.html">
@@ -76,15 +76,15 @@
             </div>
 
             <div class="background-selector">
-                <h3>Selected background:</h3>
+                <h3 class="background-text">Selected Background</h3>
                 <div class="bg-options">
-                    <div class="bg-option selected" onclick="changeBackground('gradient0')" style="background-image: url('img/DORFic.webp');" title="DORFic"></div>
-                    <div class="bg-option" onclick="changeBackground('gradient1')" style="background-image: url('img/field_lake.jpg');" title="Frutiger Aero"></div>
-                    <div class="bg-option" onclick="changeBackground('gradient2')" style="background-image: url('img/cyber-glacier.webp');" title="Cyber Glacier"></div>
-                    <div class="bg-option" onclick="changeBackground('gradient3')" style="background-image: url('img/vector-flourish.jpg');" title="Vector Flourish"></div>
-                    <div class="bg-option" onclick="changeBackground('gradient4')" style="background-image: url('img/frutiger-eco.webp');" title="Frutiger Eco"></div>
-                    <div class="bg-option" onclick="changeBackground('gradient5')" style="background-image: url('img/dark-aurora.webp');" title="Dark Aurora"></div>
-                    <!-- <div class="bg-option" onclick="changeBackground('gradient6')" style="background-image: url('img/futurecore.jpg');"></div> -->
+                    <div class="bg-option selected" onclick="changeBackground('gradient0')" style="background-image: url('img/acnh-2.webp');" title="Characters"></div>
+                    <div class="bg-option" onclick="changeBackground('gradient1')" style="background-image: url('img/acnh-3.webp');" title="Spring"></div>
+                    <div class="bg-option" onclick="changeBackground('gradient3')" style="background-image: url('img/acnh-6.png');" title="Summer"></div>
+                    <div class="bg-option" onclick="changeBackground('gradient4')" style="background-image: url('img/acnh-7.png');" title="Autumn"></div>
+                    <div class="bg-option" onclick="changeBackground('gradient6')" style="background-image: url('img/acnh-16.webp');" title="Winter"></div>
+                    <div class="bg-option" onclick="changeBackground('gradient2')" style="background-image: url('img/acnh-9.jpg');" title="Pattern"></div>
+                    <div class="bg-option" onclick="changeBackground('gradient5')" style="background-image: url('img/acnh-8.jpg');" title="Design"></div>
                 </div>
             </div>
 
@@ -92,51 +92,54 @@
                 <div class="calendar" id="calendar">
                     <div class="calendar-content">
                         <div class="weekdays">
-                            <div class="weekday">Sun</div>
-                            <div class="weekday">Mon</div>
-                            <div class="weekday">Tue</div>
-                            <div class="weekday">Wed</div>
-                            <div class="weekday">Thu</div>
-                            <div class="weekday">Fri</div>
-                            <div class="weekday">Sat</div>
+                            <div class="weekday">Sunday</div>
+                            <div class="weekday">Monday</div>
+                            <div class="weekday">Tuesday</div>
+                            <div class="weekday">Wednesday</div>
+                            <div class="weekday">Thursday</div>
+                            <div class="weekday">Friday</div>
+                            <div class="weekday">Saturday</div>
                         </div>
                         <div class="days" id="days"></div>
                     </div>
                 </div>
                 
                 <div class="icon-panel">
-                    <div class="icon-btn" onclick="selectIcon('img/colorful-locker.png')" title="Locker">
-                        <img src="img/colorful-locker.png" alt="Locker" class="icon-image">
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_timer.png')" title="Improve">
+                        <img src="img/acnh_timer.png" alt="Improve" class="icon-image">
                     </div>
-                    <div class="icon-btn" onclick="selectIcon('img/dialog-balloons.png')" title="Dialog Balloons">
-                        <img src="img/dialog-balloons.png" alt="Dialog Balloons" class="icon-image">
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_bag.png')" title="Travel">
+                        <img src="img/acnh_bag.png" alt="Travel" class="icon-image">
                     </div>
-                    <div class="icon-btn" onclick="selectIcon('img/msn-buttefly.png')" title="MSN Butterfly">
-                        <img src="img/msn-buttefly.png" alt="MSN Butterfly" class="icon-image">
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_cupcake.png')" title="Birthday">
+                        <img src="img/acnh_cupcake.png" alt="Birthday" class="icon-image">
                     </div>
-                    <div class="icon-btn" onclick="selectIcon('img/movie-player.png')" title="Movie">
-                        <img src="img/movie-player.png" alt="Movie" class="icon-image">
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_weed.png')" title="Clean">
+                        <img src="img/acnh_weed.png" alt="Clean" class="icon-image">
                     </div>
-                    <div class="icon-btn" onclick="selectIcon('img/note_disk.png')" title="Music">
-                        <img src="img/note_disk.png" alt="Music" class="icon-image">
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_carpet.png')" title="Exercise Mat">
+                        <img src="img/acnh_carpet.png" alt="Exercise Mat" class="icon-image">
                     </div>
-                    <div class="icon-btn" onclick="selectIcon('img/world-headphones.png')" title="World">
-                        <img src="img/world-headphones.png" alt="Woeld" class="icon-image">
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_water.png')" title="Water Plants">
+                        <img src="img/acnh_water.png" alt="Water Plants" class="icon-image">
                     </div>
-                    <div class="icon-btn" onclick="selectIcon('img/green-user.png')" title="Green User">
-                        <img src="img/green-user.png" alt="Green User" class="icon-image">
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_starfragment.png')" title="Astro Event">
+                        <img src="img/acnh_starfragment.png" alt="Astro Event" class="icon-image">
                     </div>
-                    <div class="icon-btn" onclick="selectIcon('img/blue-user.png')" title="Blue User">
-                        <img src="img/blue-user.png" alt="Blue User" class="icon-image">
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_eggfish.png')" title="Spring">
+                        <img src="img/acnh_eggfish.png" alt="Spring" class="icon-image">
                     </div>
-                    <div class="icon-btn" onclick="selectIcon('img/blue-notebook.png')" title="Notebook">
-                        <img src="img/blue-notebook.png" alt="Notebook" class="icon-image">
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_summershell.png')" title="Summer">
+                        <img src="img/acnh_summershell.png" alt="Summer" class="icon-image">
                     </div>
-                    <div class="icon-btn" onclick="selectIcon('img/apple.png')" title="Apple">
-                        <img src="img/apple.png" alt="Food 1" class="icon-image">
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_maple.png')" title="Autumn">
+                        <img src="img/acnh_maple.png" alt="Autumn" class="icon-image">
                     </div>
-                    <div class="icon-btn" onclick="selectIcon('')" title="Delete">
-                        <img src="img/full-bin.png" alt="Borrar" class="icon-image">
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_snowflake.png')" title="Winter">
+                        <img src="img/acnh_snowflake.png" alt="Winter" class="icon-image">
+                    </div>
+                    <div class="icon-btn" onclick="selectIcon('')" title="Clear">
+                        <img src="img/acnh_wand.png" alt="Clear" class="icon-image">
                     </div>
                 </div>
             </div>
@@ -148,10 +151,6 @@
 
         <div style="text-align: center;">
             <button class="export-btn" onclick="exportToPDF()">Download your PDF</button>
-        </div>
-
-        <div class="acnh_button">
-            <a href="themed_calendar_acnh.html"><img class="img_btn" src="img/acnh_wand.png" alt="Convert to ACNH Themed"></a>
         </div>
     </div>
 
@@ -293,25 +292,25 @@
             
             switch(backgroundType) {
                 case 'gradient0':
-                    calendar.style.backgroundImage = 'url("img/DORFic.webp")';
+                    calendar.style.backgroundImage = 'url("img/acnh-2.webp")';
                     break;
                 case 'gradient1':
-                    calendar.style.backgroundImage = 'url("img/field_lake.jpg")';
+                    calendar.style.backgroundImage = 'url("img/acnh-3.webp")';
                     break;
                 case 'gradient2':
-                    calendar.style.backgroundImage = 'url("img/cyber-glacier.webp")';
+                    calendar.style.backgroundImage = 'url("img/acnh-9.jpg")';
                     break;
                 case 'gradient3':
-                    calendar.style.backgroundImage = 'url("img/vector-flourish.jpg")';
+                    calendar.style.backgroundImage = 'url("img/acnh-6.png")';
                     break;
                 case 'gradient4':
-                    calendar.style.backgroundImage = 'url("img/frutiger-eco.webp")';
+                    calendar.style.backgroundImage = 'url("img/acnh-7.png")';
                     break;
                 case 'gradient5':
-                    calendar.style.backgroundImage = 'url("img/dark-aurora.webp")';
+                    calendar.style.backgroundImage = 'url("img/acnh-8.jpg")';
                     break;
                 default:
-                    calendar.style.backgroundImage = 'url("img/field_lake.jpg")';
+                    calendar.style.backgroundImage = 'url("img/acnh-16.webp")';
             }
         }
 

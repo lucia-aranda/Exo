@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exo - Pairs Game</title>
+    <title>Exo - Pairs Game Animal Crossing New Horizons</title>
     <!-- Page's icon -->
     <link rel="icon" href="img/exo.png">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/style_pairs.css">
+    <link rel="stylesheet" href="css/style_pairs_acnh.css">
      <!-- Manifest -->
     <link rel="manifest" href="manifest.json">
     <!-- Service Worker -->
@@ -26,7 +26,7 @@
     </script>
     <!-- Font Source -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
     </style>
 </head>
 <body>
@@ -35,7 +35,7 @@
 
     <div class="menu" id="div">
       
-      <div class="toggle round-button blue" title="More"><ion-icon name="add-outline" class="rotate"></ion-icon></div>
+      <div class="toggle round-button blue" title="More"><ion-icon name="add-outline" class="rotate" style="color: white;"></ion-icon></div>
         
         <!-- web stamps -->
         <a href="web_stamps.html">
@@ -63,7 +63,7 @@
     <!-- ?? /MENU -->
 
     <div class="container">
-        <h1>Frutiger Pairs</h1>
+        <h1>Animal Crossing New Horizons Pairs</h1>
         
         <div class="win-message" id="winMessage">
             ¡YOU WON!
@@ -89,29 +89,25 @@
         <div class="controls">
             <button onclick="resetGame()">Reset Game</button>
         </div>
-
-        <div class="acnh_button">
-            <a href="pairs_game_acnh.html"><img class="img_btn" src="img/acnh_wand.png" alt="Convert to ACNH Themed"></a>
-        </div>
     </div>
 
     <script>
         // Images should ideally be square and around 200x200px for best results
         const imageUrls = [
-            'img/apple.png', 
-            'img/blue-notebook.png', 
-            'img/colorful-locker.png', 
-            'img/dialog-balloons.png', 
-            'img/exo.png', 
-            'img/full-bin.png', 
-            'img/media-player.png', 
-            'img/movie-player.png', 
-            'img/blue-user.png', 
-            'img/orange.png', 
-            'img/world-headphones.png', 
-            'img/green-user.png', 
-            'img/blue-world.png', 
-            'img/clippy.png'
+            'img/acnh_acorn.png', 
+            'img/acnh_bells.png', 
+            'img/acnh_book.png', 
+            'img/acnh_branch.webp', 
+            'img/acnh_coin.png', 
+            'img/acnh_cupcake.png', 
+            'img/acnh_eggfish.png', 
+            'img/acnh_fishbait.png', 
+            'img/acnh_heartcrystals.webp', 
+            'img/acnh_leaf.png', 
+            'img/acnh_wand.png', 
+            'img/acnh_starfragment.png', 
+            'img/acnh_pinecone.png', 
+            'img/acnh_snowflake.png'
         ];
         
         let cards = [];
@@ -140,7 +136,7 @@
                 cardElement.className = 'card';
                 cardElement.dataset.index = index;
                 cardElement.innerHTML = `
-                    <div class="card-front">?</div>
+                    <div class="card-front"><img src="img/acnh_question.png"></img></div>
                     <div class="card-back">
                         <img src="${card.imageUrl}" alt="Card ${index}">
                     </div>

@@ -32,27 +32,27 @@
 }
 
 .green {
-    background: linear-gradient(135deg, #a8d52d, #83ac29, #74a727, #83ac29, #a8d52d);
+    background: linear-gradient(135deg, #bee893, #a3ea5b, #88ea27, #a3ea5b, #bee893);
 }
 
 .blue {
-    background: linear-gradient(135deg, #6fb9f6, #4ca3f9, #2587f8, #4ca3f9, #6fb9f6);
+    background: linear-gradient(135deg, #0cc6b8, #06c8b8, #00c5b4, #06c8b8, #0cc6b8);
 }
 
 .purple {
-    background: linear-gradient(135deg, #f09bfe, #cd5ffb, #a92bf7, #cd5ffb, #f09bfe);
+    background: linear-gradient(135deg, #8b9df2, #7c91f9, #6e85fa, #7c91f9, #8b9df2);
 }
 
 .orange {
-    background: linear-gradient(135deg, #f4cb8d, #fca44d, #fe8922, #fca44d, #f4cb8d);
+    background: linear-gradient(135deg, #fdd7ac, #fbbd75, #f89f3a, #fbbd75, #fdd7ac);
 }
 
 .red {
-    background: linear-gradient(135deg, #f79c95, #fc5353, #f70707, #fc5353, #f79c95);
+    background: linear-gradient(135deg, #fdc0c7, #fca2ad, #fc8694, #fca2ad, #fdc0c7);
 }
 
 .yellow {
-    background: linear-gradient(135deg, #ffe96e, #f8d300, #dcbb01, #f8d300, #ffe96e);
+    background: linear-gradient(135deg, #ffe100, #fce006, #f9de0f, #fce006, #ffe100);
 }
 
 .round-button::before {
@@ -80,7 +80,7 @@ li
     background: #ffffff; /*buttons color*/
     border-radius: 50%;
     box-shadow: 0 0px 4px rgba(0, 0, 0, 0.15);
-    color: #111; 
+    color: #ffffff; 
     transition: 0.5s;
 }
 
@@ -131,8 +131,8 @@ li:hover
 }
 
 body {
-    font-family: "Audiowide", sans-serif;
-    background-image: url('../img/windows_xp.jpg');
+    font-family: "Nunito", sans-serif;
+    background-image: url('../img/acnh-9.jpg');
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -150,7 +150,7 @@ body {
 }
 
 .header {
-    background: linear-gradient(135deg, #74a727 0%, #2587f8 100%);
+    background: linear-gradient(360deg, #74e0aa 0%, #0cc6b8 100%);
     color: rgba(255, 255, 255, 0.986);
     padding: 20px;
     text-align: center;
@@ -183,6 +183,11 @@ body {
 .month-year {
     font-size: 24px;
     min-width: 200px;
+}
+
+.background-text {
+    font-style: bold;
+    color: #666;
 }
 
 .calendar-container {
@@ -256,12 +261,12 @@ body {
 }
 
 .day:hover {
-    background: #aefa3b5f;
+    background: #6c81ea82;
     transform: scale(1.05);
 }
 
 .day.today {
-    background: #2587f8;
+    background: #0cc6b8;
     color: white;
 }
 
@@ -271,8 +276,8 @@ body {
 }
 
 .day.selected {
-    border-color: #74a727;
-    background: #a8d52d;
+    border-color: #8b9df2;
+    background: #8b9df2;
 }
 
 .day-number {
@@ -310,14 +315,14 @@ body {
 }
 
 .icon-btn:hover {
-    border-color: #74a727;
-    background: #aefa3b5f;
+    border-color: #74e0aa;
+    background: #74e0aa;
     transform: scale(1.1);
 }
 
 .icon-btn.selected {
-    border-color: #74a727;
-    background: #74a727;
+    border-color: #74e0aa;
+    background: #74e0aa;
 }
 
 .background-selector {
@@ -336,7 +341,8 @@ body {
 .bg-option {
     width: 80px;
     height: 60px;
-    border: 3px solid transparent;
+    border: 3px solid;
+    color: #8b9df2;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -346,25 +352,26 @@ body {
 
 .bg-option:hover {
     transform: scale(1.1);
-    border-color: #74a727;
+    border-color: #0cc6b8;
 }
 
 .bg-option.selected {
-    border-color: #74a727;
-    box-shadow: 0 0 15px #aefa3b5f;
+    border-color: #0cc6b8;
+    box-shadow: 0 0 15px #0cc6b68b;
 }
 
 .export-btn {
-    background: linear-gradient(360deg, #74a727 0%, #2587f8 100%);
+    background: linear-gradient(360deg, #74e0aa 0%, #0cc6b8 100%);
     color: white;
     border: none;
     padding: 15px 30px;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: bold;
     margin: 20px;
     transition: all 0.3s ease;
-    font-family: "Audiowide", sans-serif;
+    font-family: "Nunito", sans-serif;
     position: relative;
 }
 
@@ -385,7 +392,7 @@ body {
 
 .export-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px #aefa3b5f;
+    box-shadow: 0 5px 15px #0cc6b680;
 }
 
 .instructions {
@@ -439,16 +446,6 @@ body {
         width: 45px;
         height: 45px;
     }
-}
-
-.acnh_button{
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.img_btn{
-    width: 50px;
-    height: 50px;
 }
 
 /* 👆 CALENDAR 👆 */
