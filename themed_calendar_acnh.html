@@ -393,7 +393,7 @@
                 const imgData = canvas.toDataURL('image/png', 0.95);
                 pdf.addImage(imgData, 'PNG', xPosition, yPosition, imgWidth, imgHeight);
                 
-                const fileName = `Calendario_${monthNames[currentDate.getMonth()]}_${currentDate.getFullYear()}.pdf`;
+                const fileName = `Calendar_${monthNames[currentDate.getMonth()]}_${currentDate.getFullYear()}.pdf`;
                 pdf.save(fileName);
                 
                 // Restore button
