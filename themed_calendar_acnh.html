@@ -105,12 +105,12 @@
                 </div>
                 
                 <div class="icon-panel">
-                    <!--<div class="icon-btn" onclick="selectIcon('img/acnh_timer.png')" title="Improve">
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_timer.png')" title="Improve">
                         <img src="img/acnh_timer.png" alt="Improve" class="icon-image">
-                    </div>-->
-                    <!--<div class="icon-btn" onclick="selectIcon('img/acnh_milesticket.png')" title="Taxes">
+                    </div>
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_milesticket.png')" title="Taxes">
                         <img src="img/acnh_milesticket.png" alt="Taxes" class="icon-image">
-                    </div>-->
+                    </div>
                     <div class="icon-btn" onclick="selectIcon('img/acnh_bag.png')" title="Travel">
                         <img src="img/acnh_bag.png" alt="Travel" class="icon-image">
                     </div>
@@ -126,9 +126,30 @@
                     <div class="icon-btn" onclick="selectIcon('img/acnh_water.png')" title="Water Plants">
                         <img src="img/acnh_water.png" alt="Water Plants" class="icon-image">
                     </div>
-                    <!--<div class="icon-btn" onclick="selectIcon('img/acnh_starfragment.png')" title="Astro Event">
-                        <img src="img/acnh_starfragment.png" alt="Astro Event" class="icon-image">
-                    </div>-->
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_starfragment.png')" title="Astronomical Event">
+                        <img src="img/acnh_starfragment.png" alt="Astronomical Event" class="icon-image">
+                    </div>
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_shovel.png')" title="Plant seeds">
+                        <img src="img/acnh_shovel.png" alt="Plant seeds" class="icon-image">
+                    </div>
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_shoes.png')" title="Hang out">
+                        <img src="img/acnh_shoes.png" alt="Hang out" class="icon-image">
+                    </div>
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_heartcrystals.webp')" title="Aniversary">
+                        <img src="img/acnh_heartcrystals.webp" alt="Aniversary" class="icon-image">
+                    </div>
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_memo.png')" title="Write">
+                        <img src="img/acnh_memo.png" alt="Write" class="icon-image">
+                    </div>
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_book.png')" title="Read a book">
+                        <img src="img/acnh_book.png" alt="Read a book" class="icon-image">
+                    </div>
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_glasses.png')" title="Read online">
+                        <img src="img/acnh_glasses.png" alt="Read online" class="icon-image">
+                    </div>
+                    <div class="icon-btn" onclick="selectIcon('img/acnh_coin.png')" title="Purchase">
+                        <img src="img/acnh_coin.png" alt="Purchase" class="icon-image">
+                    </div>
                     <div class="icon-btn" onclick="selectIcon('img/acnh_sakurapetal.png')" title="Spring">
                         <img src="img/acnh_sakurapetal.png" alt="Spring" class="icon-image">
                     </div>
@@ -351,6 +372,10 @@
                 exportButton.disabled = true;
                 
                 const calendarElement = document.querySelector('.export-area');
+
+                //Hide backround and icons p.d. el stands for element
+                const elementsToHide = calendarElement.querySelectorAll('.background-selector, .icon-panel');
+                elementsToHide.forEach(el => el.style.visibility = 'hidden');
                 
                 const canvas = await html2canvas(calendarElement, {
                     scale: 1.5,  // Reduced for better performance
@@ -362,6 +387,8 @@
                     scrollX: 0,
                     scrollY: 0
                 });
+
+                elementsToHide.forEach(el => el.style.visibility ='');
                 
                 // Use window.jspdf.jsPDF
                 const pdf = new window.jspdf.jsPDF('portrait', 'mm', 'a4');
@@ -394,7 +421,9 @@
                 pdf.addImage(imgData, 'PNG', xPosition, yPosition, imgWidth, imgHeight);
                 
                 const fileName = `Calendar_${monthNames[currentDate.getMonth()]}_${currentDate.getFullYear()}.pdf`;
-                pdf.save(fileName);
+                //pdf.save(fileName);
+                window.open(pdf.output('bloburl'), '_blank');
+                //window.location.href = pdf.output('bloburl');
                 
                 // Restore button
                 exportButton.textContent = originalText;
@@ -411,6 +440,7 @@
                     exportButton.disabled = false;
                 }
             }
+
         }
 
         // Restart calendar
