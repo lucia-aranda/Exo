@@ -13,8 +13,8 @@
 
 @media only screen and (max-width:100px){
   .page{
-    grid-template-columns:1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas: 
     "menu"
     "terminal-loader"
@@ -46,7 +46,7 @@
     width: 200px;
     height: 200px;
     left: 10%;
-    top: 30px;
+    top: 15%;
     position: fixed;
     display: flex;
     justify-content: center;
@@ -164,6 +164,23 @@ li:hover
 
 /* 👆 MENU 👆 */
 
+/* 👇 NOTI 👇 */
+
+.noti{
+  width: 600px;
+  height: 140px;
+  background: linear-gradient(135deg, #000000, #161616, #161616, #0f2f0b, #0e6404);
+  border-radius: 5px;
+  position: absolute;
+  top: 10%;
+  left: 31%;
+}
+hr{
+  color: #0b0;
+}
+
+/* 👆 NOTI 👆 */
+
 /* 👇 From CodePen.io by katarzynamarta 👇 */
 
 * {
@@ -176,7 +193,7 @@ li:hover
   position: fixed;
   /* top: 30%;
   left: 30%; */
-  transform: translate(240%, 160%);
+  transform: translate(290%, 210%);
   z-index: 90;
 	display: flex;
   flex-direction: column;
