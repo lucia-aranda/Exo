@@ -349,6 +349,10 @@
                 exportButton.disabled = true;
                 
                 const calendarElement = document.querySelector('.export-area');
+
+                //Hide backround and icons p.d. el stands for element
+                const elementsToHide = calendarElement.querySelectorAll('.background-selector, .icon-panel');
+                elementsToHide.forEach(el => el.style.visibility = 'hidden');
                 
                 const canvas = await html2canvas(calendarElement, {
                     scale: 1.5,  // Reduced for better performance
@@ -360,6 +364,8 @@
                     scrollX: 0,
                     scrollY: 0
                 });
+
+                elementsToHide.forEach(el => el.style.visibility ='');
                 
                 // Use window.jspdf.jsPDF
                 const pdf = new window.jspdf.jsPDF('portrait', 'mm', 'a4');
@@ -392,7 +398,8 @@
                 pdf.addImage(imgData, 'PNG', xPosition, yPosition, imgWidth, imgHeight);
                 
                 const fileName = `Calendario_${monthNames[currentDate.getMonth()]}_${currentDate.getFullYear()}.pdf`;
-                pdf.save(fileName);
+                //pdf.save(fileName);
+                window.open(pdf.output('bloburl'), '_blank');
                 
                 // Restore button
                 exportButton.textContent = originalText;
