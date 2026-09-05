@@ -258,8 +258,10 @@ body {
 
 .page-buttons {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
 }
 
 .page-btn {
