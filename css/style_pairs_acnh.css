@@ -236,7 +236,7 @@ h1 {
     font-size: 3em;
 }
 
-.card-size {
+img {
     width: 50%;
     height: 50%;
     object-fit: contain;
