@@ -155,7 +155,7 @@ body {
 
 h1 {
     text-align: center;
-    color: 	#74e0aa;
+    color: #8b9df2;
     margin-bottom: 20px;
     font-size: 2.5em;
 }
@@ -165,7 +165,7 @@ h1 {
     justify-content: space-around;
     margin-bottom: 20px;
     padding: 15px;
-    background: linear-gradient(135deg, #fdc0c7 0%, #fdc0c7 100%);
+    background: linear-gradient(135deg, #74e0aa 10%, #0cc6b8 100%);
     border-radius: 10px;
     color: white;
 }
